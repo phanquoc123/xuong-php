@@ -1,0 +1,21 @@
+{
+    "name": "quocpa44/composer_khoi_tao",
+    "autoload": {
+        "psr-4": {
+            "Quocpa44\\ComposerKhoiTao\\": "src/"
+        },
+        "files":[
+            "helper.php"
+         ]
+
+
+    },
+   
+    "require": {
+        "bramus/router": "~1.6",
+        "vlucas/phpdotenv": "^5.6",
+        "doctrine/dbal": "^4.0",
+        "eftec/bladeone": "^4.13",
+        "rakit/validation": "^1.4"
+    }
+}

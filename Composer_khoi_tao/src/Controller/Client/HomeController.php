@@ -1,0 +1,37 @@
+<?php
+
+
+namespace Quocpa44\ComposerKhoiTao\Controller\Client;
+
+
+use Quocpa44\ComposerKhoiTao\Common\Controller;
+use Quocpa44\ComposerKhoiTao\Common\Helper;
+use Quocpa44\ComposerKhoiTao\Model\Product;
+
+class HomeController extends Controller
+{
+
+    private Product $product;
+
+    public function __construct()
+    {
+        $this->product = new Product();
+    }
+    public function index()
+    {
+
+        $name = ' quoc dep trai';
+
+
+     $this->renderClient('home', [
+        'name' =>$name
+     ]);
+     
+       
+    }
+}
+
+
+
+
+?>
