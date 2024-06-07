@@ -1,5 +1,6 @@
 <?php
 
+use Quocpa44\ComposerKhoiTao\Controller\Admin\CategoryController;
 use Quocpa44\ComposerKhoiTao\Controller\Admin\DashboardController;
 use Quocpa44\ComposerKhoiTao\Controller\Admin\UserController;
 use Quocpa44\ComposerKhoiTao\Controller\Admin\ProductController;
@@ -16,25 +17,7 @@ $router->before('GET|POST', '/admin/*.*', function() {
         exit();
     }
     
-    // else{
-    //     if($_SESSION['user']['type'] == 'admin' ){
-    //         header('location: ' . url('admin/'));
-    //         exit();
-    //     }
-    //     else{
-    //         header('location: ' . url());
-    //         exit();
-    //     }
-    // }
-    // if(isset($_SESSION['user'])){
-    //     if($_SESSION['user']['type'] == 'admin' ){
-    //         header('location: ' . url('admin/'));
-    //         exit();
-    //     }else{
-    //         header('location: ' . url());
-    //         exit();
-    //     }
-    // }
+   
 });
 
 $router->mount('/admin', function () use ($router) {
@@ -64,6 +47,17 @@ $router->mount('/admin', function () use ($router) {
         $router->post('/{id}/update',   ProductController::class . '@update');
         $router->get('/{id}/delete',    ProductController::class . '@delete');
 
+      
+    });
+
+    $router->mount('/categories', function () use ($router) {
+
+        $router->get('/',               CategoryController::class . '@index');
+        $router->get('/create',         CategoryController::class . '@create');
+       
+        $router->post('/store',         CategoryController::class . '@store');
+
+        
       
     });
 

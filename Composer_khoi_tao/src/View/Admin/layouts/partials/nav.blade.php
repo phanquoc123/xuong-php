@@ -15,6 +15,15 @@
             </a>
 
         </li>
+        <li class="mm-active">
+            <a class="" href="{{ url('admin/categories') }}" aria-expanded="false">
+                <div class="icon_menu">
+                    <img src="{{asset('assets/admin/img/menu-icon/8.svg') }}" alt>
+                </div>
+                <span>Danh mục</span>
+            </a>
+
+        </li>
       
         {{-- <li class>
             <a href="Board.html" aria-expanded="false">

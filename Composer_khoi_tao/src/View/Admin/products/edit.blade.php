@@ -74,6 +74,14 @@
                                         name="img_thumbnail">
                                     <img src="{{ asset($product['img_thumbnail']) }}" width="100px" alt="">
                                 </div>
+                                <div class="mb-3 mt-3">
+                                    <label for="name" class="form-label">Price Regular :</label>
+                                    <input type="number" class="form-control" id="name" min="1" placeholder="Enter price" name="price_regular" value="{{$product['price_regular'] }}">
+                                </div>
+                                <div class="mb-3 mt-3">
+                                    <label for="name" class="form-label">Price Sale:</label>
+                                    <input type="number" class="form-control" id="name" min="0" placeholder="Enter price_sale" name="price_sale"  value="{{$product['price_sale'] }}">
+                                </div>
                             </div>
                 
                             <div class="col-md-6">

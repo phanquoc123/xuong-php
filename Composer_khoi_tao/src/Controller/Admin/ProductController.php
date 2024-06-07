@@ -150,6 +150,8 @@ class ProductController extends Controller
         $validation = $validator->make($_POST + $_FILES, [
             'category_id'           => 'required',
             'name'                  => 'required|max:100',
+            'price_regular'         => 'required',
+            'price_sale'            => 'required|',
             'overview'              => 'required|max:500',
             'content'               => 'required|max:65000',
             'img_thumbnail'         => 'uploaded_file:0,2048K,png,jpeg,jpg',
@@ -165,6 +167,8 @@ class ProductController extends Controller
             $data = [
                 'category_id'   => $_POST['category_id'],
                 'name'          => $_POST['name'],
+                'price_regular' => $_POST['price_regular'],
+                'price_sale'    => $_POST['price_sale'],
                 'overview'      => $_POST['overview'],
                 'content'       => $_POST['content'],
                 'updated_at'    => date('Y-m-d H:i:s' , time() + 7 * 3600)
