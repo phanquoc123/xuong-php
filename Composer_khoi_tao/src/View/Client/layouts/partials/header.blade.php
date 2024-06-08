@@ -25,7 +25,7 @@
                         </li>
 
                         <li>
-                            <a href="{{asset('assets/client/product.html') }}">Shop</a>
+                            <a href="{{ url('product') }}">Shop</a>
                         </li>
 
                         <li class="label1" data-label1="hot">

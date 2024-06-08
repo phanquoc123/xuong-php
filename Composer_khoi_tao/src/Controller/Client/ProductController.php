@@ -12,12 +12,22 @@ class ProductController extends Controller
 
     private Product $product;
     
+
+
+    public function __construct()
+    {
+        $this->product = new Product();
+    }
     public function index()
     {
 
-       
-     
-       
+        [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1);
+
+        $this->renderClient('product', [
+            'products' => $products,
+            'totalPage' => $totalPage,
+            'page' => $_GET['page'] ?? 1,
+        ]);
     }
 
     public function detail($id){

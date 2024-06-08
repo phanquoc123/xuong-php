@@ -20,19 +20,12 @@ class HomeController extends Controller
     public function index()
     {
 
-        [$products , $totalPage] = $this->product->paginate($_GET['page'] ?? 1 );
+        [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1);
 
         $this->renderClient('home', [
             'products' => $products,
             'totalPage' => $totalPage,
             'page' => $_GET['page'] ?? 1,
         ]);
-        
+    }
 }
-
-}
-
-
-
-
-?>
