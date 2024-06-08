@@ -1,5 +1,7 @@
 <!--===============================================================================================-->	
 <link rel="icon" type="image/png" href="{{ asset('assets/client/images/icons/favicon.png')}}"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/client/vendor/bootstrap/css/bootstrap.min.css') }}">
 <!--===============================================================================================-->

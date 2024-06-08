@@ -2,21 +2,21 @@
     <!-- Header desktop -->
     <div class="container-menu-desktop">
         <!-- Topbar -->
-        
+
 
         <div class="wrap-menu-desktop">
             <nav class="limiter-menu-desktop container">
-                
-                <!-- Logo desktop -->		
-                <a href="#" class="logo">
-                    <img src="{{asset('assets/client/images/icons/logo-01.png') }}" alt="IMG-LOGO">
+
+                <!-- Logo desktop -->
+                <a href="{{ url() }}" class="logo">
+                    <img src="{{ asset('assets/client/images/icons/logo-01.png') }}" alt="IMG-LOGO">
                 </a>
 
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
-                        <li class="active-menu">
-                            <a href="index.html">Home</a>
+                        <li >
+                            <a href="{{ url() }}">Home</a>
                             {{-- <ul class="sub-menu">
                                 <li><a href="index.html">Homepage 1</a></li>
                                 <li><a href="home-02.html">Homepage 2</a></li>
@@ -44,7 +44,7 @@
                             <a href="contact.html">Contact</a>
                         </li>
                     </ul>
-                </div>	
+                </div>
 
                 <!-- Icon header -->
                 <div class="wrap-icon-header flex-w flex-r-m">
@@ -52,23 +52,47 @@
                         <i class="zmdi zmdi-search"></i>
                     </div>
 
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                        data-notify="2">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 
-                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                    <a href="#"
+                        class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                        data-notify="0">
                         <i class="zmdi zmdi-favorite-outline"></i>
                     </a>
+                    @if (!isset($_SESSION['user']))
+                        <a href="{{ url('login') }}"
+                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " data-notify="0">
+                            <span class="material-symbols-outlined">
+                                login
+                            </span>
+                        </a>
+                    @endif
+
+                    @if (isset($_SESSION['user']))
+                        <form action="{{ url('logout') }}" method="post">
+                            <button type="submit" class="material-symbols-outlined dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                                logout
+                            </button>
+                        </form>
+                    @endif
+
+
+
+
+
                 </div>
             </nav>
-        </div>	
+        </div>
     </div>
 
     <!-- Header Mobile -->
     <div class="wrap-header-mobile">
-        <!-- Logo moblie -->		
+        <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="index.html"><img src="{{asset('assets/client/images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
+            <a href="index.html"><img src="{{ asset('assets/client/images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
         </div>
 
         <!-- Icon header -->
@@ -77,11 +101,13 @@
                 <i class="zmdi zmdi-search"></i>
             </div>
 
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
+                data-notify="2">
                 <i class="zmdi zmdi-shopping-cart"></i>
             </div>
 
-            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+                data-notify="0">
                 <i class="zmdi zmdi-favorite-outline"></i>
             </a>
         </div>
@@ -164,7 +190,7 @@
     <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
         <div class="container-search-header">
             <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-                <img src="{{asset('assets/client/images/icons/icon-close2.png') }}" alt="CLOSE">
+                <img src="{{ asset('assets/client/images/icons/icon-close2.png') }}" alt="CLOSE">
             </button>
 
             <form class="wrap-search-header flex-w p-l-15">

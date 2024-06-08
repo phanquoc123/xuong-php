@@ -1,11 +1,4 @@
-@if (!isset($_SESSION['user']))
-    <a href="{{ url('login') }}"><button type="button" class="btn btn-primary">LOGIN</button></a>
-@endif
-@if (isset($_SESSION['user']))
-    <form action="{{ url('logout') }}" method="post">
-        <button type="submit" class="btn btn-danger">LOGOUT</button>
-    </form>
-@endif
+
 @extends('layouts.master')
 @section('title')
     Trang chu
@@ -42,7 +35,7 @@
                             <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
                                 <img class="icon-heart1 dis-block trans-04"
                                     src=" {{ asset('assets/client/images/icons/icon-heart-01.png') }} " alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png"
+                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('assets/client/images/icons/icon-heart-02.png') }}"
                                     alt="ICON">
                             </a>
                         </div>
