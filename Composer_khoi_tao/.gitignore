@@ -1,3 +1,3 @@
-# /vendor/
-# .env
-# composer.lock
+/vendor/
+.env
+composer.lock
