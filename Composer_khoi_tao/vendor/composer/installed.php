@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'quocpa44/composer_khoi_tao',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '050711a197c08d10f3383763084e0687d6062a15',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'quocpa44/composer_khoi_tao' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '050711a197c08d10f3383763084e0687d6062a15',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
