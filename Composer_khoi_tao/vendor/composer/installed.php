@@ -3,7 +3,7 @@
         'name' => 'quocpa44/composer_khoi_tao',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'ade5e61fdd6c73d9f12b1739328650f723eccc98',
+        'reference' => '050711a197c08d10f3383763084e0687d6062a15',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -85,7 +85,7 @@
         'quocpa44/composer_khoi_tao' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'ade5e61fdd6c73d9f12b1739328650f723eccc98',
+            'reference' => '050711a197c08d10f3383763084e0687d6062a15',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
