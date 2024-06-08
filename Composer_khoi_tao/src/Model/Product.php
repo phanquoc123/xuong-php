@@ -28,7 +28,7 @@ class Product extends Model
             ->fetchAllAssociative();
     }
 
-    public function paginate($page = 1, $perPage = 2)
+    public function paginate($page = 1, $perPage = 4)
     {
         $queryBuilder = clone ($this->queryBuilder);
 

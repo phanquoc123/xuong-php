@@ -9,6 +9,9 @@ use Quocpa44\ComposerKhoiTao\Model\Product;
 
 class ProductController extends Controller
 {
+
+    private Product $product;
+    
     public function index()
     {
 
