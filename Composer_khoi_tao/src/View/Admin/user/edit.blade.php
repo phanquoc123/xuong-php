@@ -119,15 +119,17 @@
 
         {{-- IMG --}}
         <div class=" w-full mb-5 group">
-            <input
-                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 py-2.5 px-3 leading-tight focus:outline-none focus:bg-white dark:text-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400"
-                id="file_inpute" type="file" name="avatar">
-            <div class="grid md:grid-cols-2 md:gap-6">
-                <img src="{{ $user['avatar'] }}" alt="" width="200px" class="rounded-lg">
+            <div class="grid grid-cols-2 gap-6 mb-2">
+                <div>
+                    <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 py-2.5 px-3 leading-tight focus:outline-none focus:bg-white dark:text-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400"
+                        id="file_inpute" type="file" name="avatar">
+                </div>
+                <img src="{{ asset($user['avatar']) }}" alt="" width="200px"
+                    class="rounded-lg hover:opacity-75 hover:scale-105 transition duration-300">
             </div>
-        </div>
 
-        <button type="submit"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm size-full w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <button type="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm size-full w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
     </form>
 @endsection

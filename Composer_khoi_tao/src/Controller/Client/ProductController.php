@@ -31,7 +31,11 @@ class ProductController extends Controller
     }
 
     public function detail($id){
-        echo $id;
+        $product = $this->product->findByID($id);
+
+        $this->renderClient('product-detail',[
+            'product' => $product
+        ]);
     }
 }
 
