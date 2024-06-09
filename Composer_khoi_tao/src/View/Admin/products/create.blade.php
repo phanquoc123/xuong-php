@@ -86,7 +86,7 @@
     </div> --}}
     <div class="header">
         <div class="left ">
-            <h1>Add Prpduct</h1>
+            <h1>Add Product</h1>
         </div>
     </div>
     {{-- ERROR --}}
