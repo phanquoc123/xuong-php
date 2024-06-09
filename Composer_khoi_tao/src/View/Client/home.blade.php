@@ -1,12 +1,13 @@
-
 @extends('layouts.master')
 @section('title')
     Trang chu
 @endsection
 @include('layouts.partials.slide')
 @include('layouts.partials.banner')
+<div class="container">
+    @include('layouts.partials.phanbenduoiOverview')
+</div>
 @section('content')
-
     <div class="row isotope-grid">
         @foreach ($products as $item)
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
@@ -35,8 +36,8 @@
                             <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
                                 <img class="icon-heart1 dis-block trans-04"
                                     src=" {{ asset('assets/client/images/icons/icon-heart-01.png') }} " alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('assets/client/images/icons/icon-heart-02.png') }}"
-                                    alt="ICON">
+                                <img class="icon-heart2 dis-block trans-04 ab-t-l"
+                                    src="{{ asset('assets/client/images/icons/icon-heart-02.png') }}" alt="ICON">
                             </a>
                         </div>
                     </div>
@@ -48,8 +49,9 @@
             </div>
         @endforeach
 
+
     </div>
-    <nav aria-label="Page navigation example">
+    <nav style="margin-left:45%" aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
                 <a class="page-link " href=" {{ url('?page=' . $page - 1) }}" aria-label="Previous">

@@ -21,7 +21,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        [$products, $totalPage] = $this->product->paginate($_GET['page'] ?? 1);
+        [$products, $totalPage] = $this->product->paginateShop($_GET['page'] ?? 1);
 
         $this->renderClient('product', [
             'products' => $products,
