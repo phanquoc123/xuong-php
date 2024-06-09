@@ -30,14 +30,14 @@ class Product extends Model
             ->fetchAllAssociative();
     }
 
-    public function paginateAdmin($page = 1, $perPage = 5)
+    public function paginateAdmin($page = 1, $perPage = 5, $desc = 'desc')
     {
         $queryBuilder = clone ($this->queryBuilder);
 
         $totalPage = ceil($this->count() / $perPage);
         $offset = $perPage * ($page - 1);
 
-        $data =  $queryBuilder
+        $data = $queryBuilder
             ->select(
                 'p.id',
                 'p.category_id',
@@ -55,7 +55,7 @@ class Product extends Model
             ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
             ->setFirstResult($offset)
             ->setMaxResults($perPage)
-            ->orderBy('p.id', 'desc')
+            ->orderBy('p.id', $desc)
             ->fetchAllAssociative();
 
 
@@ -68,7 +68,7 @@ class Product extends Model
         $totalPage = ceil($this->count() / $perPage);
         $offset = $perPage * ($page - 1);
 
-        $data =  $queryBuilder
+        $data = $queryBuilder
             ->select(
                 'p.id',
                 'p.category_id',
@@ -98,7 +98,7 @@ class Product extends Model
         $totalPage = ceil($this->count() / $perPage);
         $offset = $perPage * ($page - 1);
 
-        $data =  $queryBuilder
+        $data = $queryBuilder
             ->select(
                 'p.id',
                 'p.category_id',
@@ -120,23 +120,6 @@ class Product extends Model
 
         return [$data, $totalPage];
     }
-<<<<<<< HEAD
-    // public function paginateProducts($page = 1, $perPage = 5)
-    // {
-    //     $queryBuilder = clone ($this->queryBuilder);
-    //     $totalPage = ceil($this->count() / $perPage);
-    //     $offset = $perPage * ($page - 1);
-    //     $data = $queryBuilder
-    //         ->select('*')
-    //         ->from($this->tableName)
-    //         ->setFirstResult($offset)
-    //         ->setMaxResults($perPage)
-    //         ->fetchAllAssociative();
-
-    //     return [$data, $totalPage];
-    // }
-=======
->>>>>>> 305d7f756da4a215a5573573f3a4ccf9a75ab1aa
     public function findByID($id)
     {
         return $this->queryBuilder

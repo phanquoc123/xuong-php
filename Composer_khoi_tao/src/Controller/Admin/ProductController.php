@@ -23,14 +23,19 @@ class ProductController extends Controller
 
     public function index()
     {
-       [$products , $totalPage] = $this->product->paginateAdmin($_GET['page'] ?? 1 );
+        $categories = $this->category->getAll();
+
+        $categoryPluck = array_column($categories, 'name', 'id');
+
+        [$products, $totalPage] = $this->product->paginateAdmin($_GET['page'] ?? 1, $perPage = 5, $_GET['asc'] ?? 'desc');
 
         $this->renderAdmin('products.index', [
+            'categoryPluck' => $categoryPluck,
             'products' => $products,
             'totalPage' => $totalPage,
             'page' => $_GET['page'] ?? 1,
         ]);
-        
+
     }
     public function create()
     {
@@ -45,8 +50,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = $this->product->findByID($id);
-
-
         $this->renderAdmin('products.show', [
             'product' => $product,
         ]);
@@ -58,13 +61,13 @@ class ProductController extends Controller
         // VALIDATE
         $validator = new Validator;
         $validation = $validator->make($_POST + $_FILES, [
-            'category_id'           => 'required',
-            'name'                  => 'required|max:100',
-            'price_regular'         => 'required',
-            'price_sale'            => 'required|',
-            'overview'              => 'required|max:500',
-            'content'               => 'required|max:65000',
-            'img_thumbnail'         => 'required|uploaded_file:0,2048K,png,jpeg,jpg',
+            'category_id' => 'required',
+            'name' => 'required|max:100',
+            'price_regular' => 'required',
+            'price_sale' => 'required|',
+            'overview' => 'required|max:500',
+            'content' => 'required|max:65000',
+            'img_thumbnail' => 'required|uploaded_file:0,2048K,png,jpeg,jpg',
         ]);
         $validation->validate();
 
@@ -75,18 +78,18 @@ class ProductController extends Controller
             exit;
         } else {
             $data = [
-                'category_id'   => $_POST['category_id'],
-                'name'          => $_POST['name'],
+                'category_id' => $_POST['category_id'],
+                'name' => $_POST['name'],
                 'price_regular' => $_POST['price_regular'],
-                'price_sale'    => $_POST['price_sale'],
-                'overview'      => $_POST['overview'],
-                'content'       => $_POST['content'],
+                'price_sale' => $_POST['price_sale'],
+                'overview' => $_POST['overview'],
+                'content' => $_POST['content'],
             ];
 
             if (!empty($_FILES['img_thumbnail']) && $_FILES['img_thumbnail']['size'] > 0) {
 
                 $from = $_FILES['img_thumbnail']['tmp_name'];
-                $to   = 'assets/uploads/' . time() . $_FILES['img_thumbnail']['name'];
+                $to = 'assets/uploads/' . time() . $_FILES['img_thumbnail']['name'];
 
                 if (move_uploaded_file($from, PATH_ROOT . $to)) {
                     $data['img_thumbnail'] = $to;
@@ -115,8 +118,8 @@ class ProductController extends Controller
             $product = $this->product->findByID($id);
             $this->product->delete($id);
 
-            if ($product['img_thumbnail'] && file_exists(PATH_ROOT  . $product['img_thumbnail'])) {
-                unlink(PATH_ROOT  . $product['img_thumbnail']);
+            if ($product['img_thumbnail'] && file_exists(PATH_ROOT . $product['img_thumbnail'])) {
+                unlink(PATH_ROOT . $product['img_thumbnail']);
                 $_SESSION['status'] = true;
                 $_SESSION['msg'] = 'Thao tác thành công';
             }
@@ -148,13 +151,13 @@ class ProductController extends Controller
 
         $validator = new Validator;
         $validation = $validator->make($_POST + $_FILES, [
-            'category_id'           => 'required',
-            'name'                  => 'required|max:100',
-            'price_regular'         => 'required',
-            'price_sale'            => 'required|',
-            'overview'              => 'required|max:500',
-            'content'               => 'required|max:65000',
-            'img_thumbnail'         => 'uploaded_file:0,2048K,png,jpeg,jpg',
+            'category_id' => 'required',
+            'name' => 'required|max:100',
+            'price_regular' => 'required',
+            'price_sale' => 'required|',
+            'overview' => 'required|max:500',
+            'content' => 'required|max:65000',
+            'img_thumbnail' => 'uploaded_file:0,2048K,png,jpeg,jpg',
         ]);
         $validation->validate();
 
@@ -165,13 +168,13 @@ class ProductController extends Controller
             exit;
         } else {
             $data = [
-                'category_id'   => $_POST['category_id'],
-                'name'          => $_POST['name'],
+                'category_id' => $_POST['category_id'],
+                'name' => $_POST['name'],
                 'price_regular' => $_POST['price_regular'],
-                'price_sale'    => $_POST['price_sale'],
-                'overview'      => $_POST['overview'],
-                'content'       => $_POST['content'],
-                'updated_at'    => date('Y-m-d H:i:s' , time() + 7 * 3600)
+                'price_sale' => $_POST['price_sale'],
+                'overview' => $_POST['overview'],
+                'content' => $_POST['content'],
+                'updated_at' => date('Y-m-d H:i:s', time() + 7 * 3600)
             ];
 
             $flagUpload = false;
@@ -179,7 +182,7 @@ class ProductController extends Controller
             if (!empty($_FILES['img_thumbnail']) && $_FILES['img_thumbnail']['size'] > 0) {
 
                 $from = $_FILES['img_thumbnail']['tmp_name'];
-                $to   = 'assets/uploads/' . time() . $_FILES['img_thumbnail']['name'];
+                $to = 'assets/uploads/' . time() . $_FILES['img_thumbnail']['name'];
 
                 if (move_uploaded_file($from, PATH_ROOT . $to)) {
                     $data['img_thumbnail'] = $to;
