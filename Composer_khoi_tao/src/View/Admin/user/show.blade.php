@@ -25,17 +25,17 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="text-center text-black">
+            <tbody class="text-center ">
                 @foreach ($user as $field => $value)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-                        <td class="px-4 py-5">{{ $field }}</td>
+                        <td class="px-2 py-3 ">{{ $field }}</td>
                         @if ($field == 'avatar')
                             <td class="px-4 py-5 flex justify-center">
                                 <img src="{{ asset("{$value}") }}" alt="" width="100"
                                     style="border-radius: 10px;">
                             </td>
                         @else
-                            <td>{{ $value }}</td>
+                            <td class="font-semibold">{{ $value }}</td>
                         @endif
                     </tr>
                 @endforeach
