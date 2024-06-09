@@ -119,21 +119,6 @@ class Product extends Model
 
         return [$data, $totalPage];
     }
-    public function paginateProducts($page = 1, $perPage = 5)
-    {
-        $queryBuilder = clone ($this->queryBuilder);
-        $totalPage = ceil($this->count() / $perPage);
-        $offset = $perPage * ($page - 1);
-        $data = $queryBuilder
-            ->select('*')
-            ->from($this->tableName)
-            ->setFirstResult($offset)
-            ->setMaxResults($perPage)
-            ->orderBy('id', 'desc')
-            ->fetchAllAssociative();
-
-        return [$data, $totalPage];
-    }
     public function findByID($id)
     {
         return $this->queryBuilder
