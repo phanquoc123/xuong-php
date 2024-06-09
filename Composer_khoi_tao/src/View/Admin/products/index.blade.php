@@ -23,14 +23,14 @@ Danh sách sản phẩm
     <div class="p-4 text-gray-600 dark:text-gray-300 outline-none focus:outline-none">
         <form action="" method="get">
             <div class="relative flex">
-                <select name="category_id"
+                <select name="category"
                     class="ml-2 bg-white dark:bg-gray-800 h-10 px-5 rounded-l-full text-sm focus:outline-none outline-none border-2 border-gray-500 dark:border-gray-600 border-r-1 cursor-pointer max-h-10 overflow-y-hidden">
                     <option class="font-medium cursor-pointer" value="">Category</option>
                     @foreach ($categoryPluck as $id => $name)
-                        <option class="class=" font-medium cursor-pointer"" value="{{ $id }}">{{ $name }}</option>
+                        <option class="font-medium cursor-pointer" value="{{ $id }}">{{ $name }}</option>
                     @endforeach
                 </select>
-                <input type="search" name="product_name" placeholder="Search"
+                <input type="search" name="keyword" placeholder="Search"
                     class="bg-white dark:bg-gray-800 h-10 flex px-5 w-full rounded-r-full text-sm focus:outline-none border-2 border-l-0 border-gray-500 dark:border-gray-600"
                     autocomplete="off" spellcheck="false" step="any" autocapitalize="none" autofocus />
                 <button type="submit" class="absolute inset-y-0 right-0 mr-2 flex items-center px-2">

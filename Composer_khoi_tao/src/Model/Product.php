@@ -30,6 +30,30 @@ class Product extends Model
             ->fetchAllAssociative();
     }
 
+    public function search($keyword, $category)
+    {
+        return $this->queryBuilder
+            ->select(
+                'p.id',
+                'p.category_id',
+                'p.name',
+                'p.price_regular',
+                'p.price_sale',
+                'p.img_thumbnail',
+                'p.created_at',
+                'p.updated_at',
+                'p.overview',
+                'p.content',
+                'c.name as c_name'
+            )
+            ->from($this->tableName, 'p')
+            ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
+            ->where('p.name LIKE :keyword And p.category_id = :category')
+            ->setParameter('keyword', '%' . $keyword . '%')
+            ->setParameter('category', $category)
+            ->fetchAllAssociative();
+    }
+
     public function paginateAdmin($page = 1, $perPage = 5, $desc = 'desc')
     {
         $queryBuilder = clone ($this->queryBuilder);

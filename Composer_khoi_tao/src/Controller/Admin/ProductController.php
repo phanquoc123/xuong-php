@@ -27,7 +27,13 @@ class ProductController extends Controller
 
         $categoryPluck = array_column($categories, 'name', 'id');
 
-        [$products, $totalPage] = $this->product->paginateAdmin($_GET['page'] ?? 1, $perPage = 5, $_GET['asc'] ?? 'desc');
+        $products = [];
+        $totalPage = 0;
+        if (isset($_GET['keyword'])) {
+            $products = $this->product->search($_GET['keyword'], $_GET['category']);
+        } else {
+            [$products, $totalPage] = $this->product->paginateAdmin($_GET['page'] ?? 1, $perPage = 5, $_GET['asc'] ?? 'desc');
+        }
 
         $this->renderAdmin('products.index', [
             'categoryPluck' => $categoryPluck,
@@ -35,8 +41,8 @@ class ProductController extends Controller
             'totalPage' => $totalPage,
             'page' => $_GET['page'] ?? 1,
         ]);
-
     }
+
     public function create()
     {
         $categories = $this->category->getAll();
