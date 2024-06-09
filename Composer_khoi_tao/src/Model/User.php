@@ -30,6 +30,7 @@ class User extends Model
             ->from($this->tableName)
             ->setFirstResult($offset)
             ->setMaxResults($perPage)
+            ->orderBy('id', 'desc')
             ->fetchAllAssociative();
 
         return [$data, $totalPage];
