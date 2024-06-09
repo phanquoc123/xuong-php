@@ -108,19 +108,19 @@
                                                                                     <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span
                                                                                         class="font-semibold text-gray-900 dark:text-white">1000</span>
                                                                                 </span> -->
-            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8" >
                 <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
-                    <a class="page-link " href=" {{ url('admin/users/?page=' . $page - 1) }}" aria-label="Previous"
-                        class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                    <a style="padding: 0 5px" class="page-link " href=" {{ url('admin/users/?page=' . $page - 1) }}" aria-label="Previous"
+                        ><span aria-hidden="true">&laquo;</span></a>
                 </li>
 
             @for ($i = 1; $i <= $totalPage; $i++) <li class="page-item {{ $i == $page ? 'active' : '' }}">
-                <a class="page-link" href="{{ url('admin/products/?page=') . $i }}">{{ $i }}</a>
+                <a style="padding: 0 5px" class="page-link" href="{{ url('admin/products/?page=') . $i }}">{{ $i }}</a>
                 </li>
                 @endfor
 
                 <li class="page-item {{ $page == $totalPage ? 'disabled' : '' }}">
-                    <a class="page-link " href="{{ $page < $totalPage ? url('admin/products/?page=' . $page + 1) : '' }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                    <a style="padding: 0 5px" class="page-link " href="{{ $page < $totalPage ? url('admin/products/?page=' . $page + 1) : '' }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
                 </li>
 
         </ul>

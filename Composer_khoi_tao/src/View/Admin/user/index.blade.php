@@ -91,16 +91,16 @@ Danh sách User
     <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
         <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
             <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
-                <a class="page-link " href=" {{ url('admin/users/?page=' . $page - 1) }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                <a style="padding: 0 5px" class="page-link " href=" {{ url('admin/users/?page=' . $page - 1) }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
             </li>
 
             @for ($i = 1; $i <= $totalPage; $i++) <li class="page-item {{ $i == $page ? 'active' : '' }}">
-                <a class="page-link" href="{{ url('admin/users/?page=') . $i }}">{{ $i }}</a>
+                <a style="padding: 0 5px" class="page-link" href="{{ url('admin/users/?page=') . $i }}">{{ $i }}</a>
                 </li>
                 @endfor
 
                 <li class="page-item {{ $page == $totalPage ? 'disabled' : '' }}">
-                    <a class="page-link " href="{{ $page < $totalPage ? url('admin/users/?page=' . $page + 1) : '' }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                    <a style="padding: 0 5px" class="page-link " href="{{ $page < $totalPage ? url('admin/users/?page=' . $page + 1) : '' }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
                 </li>
 
         </ul>
