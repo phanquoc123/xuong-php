@@ -139,9 +139,9 @@ class UserController extends Controller
         $validation = $validator->make($_POST + $_FILES, [
             'name'                  => 'required|max:100',
             'email'                 => 'required|email',
-            'password'              => 'required|min:6',
+            'password'              => 'min:6',
             'avatar'                => 'uploaded_file:0,2M,png,jpeg',
-            'type'                  => 'required|in:admin,member',
+            'type'                  => 'in:admin,member',
 
         ]);
 
