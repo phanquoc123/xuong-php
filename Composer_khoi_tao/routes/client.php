@@ -1,6 +1,7 @@
 <?php
 
 use Quocpa44\ComposerKhoiTao\Controller\Client\AboutController;
+use Quocpa44\ComposerKhoiTao\Controller\Client\CartController;
 use Quocpa44\ComposerKhoiTao\Controller\Client\ContactController;
 use Quocpa44\ComposerKhoiTao\Controller\Client\HomeController;
 use Quocpa44\ComposerKhoiTao\Controller\Client\LoginController;
@@ -17,6 +18,11 @@ $router->get('/product/{id}',   ProductController::class    . '@detail');
 $router->get('/login',          LoginController::class       . '@showFormlogin');
 $router->post('/handle-login',  LoginController::class      . '@login');
 $router->post('/logout',        LoginController::class      . '@logout');
+
+
+$router->get('cart/detail',        CartController::class . '@detail');
+
+
 
     
 
