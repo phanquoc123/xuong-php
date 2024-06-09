@@ -42,6 +42,7 @@ class Product extends Model
                 'p.category_id',
                 'p.name',
                 'p.price_regular',
+                'p.price_sale',
                 'p.img_thumbnail',
                 'p.created_at',
                 'p.updated_at',

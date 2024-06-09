@@ -110,7 +110,7 @@
                                                                                 </span> -->
             <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8" >
                 <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
-                    <a style="padding: 0 5px" class="page-link " href=" {{ url('admin/users/?page=' . $page - 1) }}" aria-label="Previous"
+                    <a style="padding: 0 5px" class="page-link " href=" {{ url('admin/products/?page=' . $page - 1) }}" aria-label="Previous"
                         ><span aria-hidden="true">&laquo;</span></a>
                 </li>
 
