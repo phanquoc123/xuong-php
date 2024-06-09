@@ -21,12 +21,12 @@ class UserController extends Controller
     {
 
 
-        [$user, $totalPage] = $this->user->paginate($_GET['page'] ?? 1);
+        [$user, $totalPage] = $this->user->paginateUser($_GET['page'] ?? 1);
 
         $this->renderAdmin('user.index', [
             'user' => $user,
             'totalPage' => $totalPage,
-
+            'page' => $_GET['page'] ?? 1,
         ]);
     }
 
