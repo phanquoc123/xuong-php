@@ -6,7 +6,7 @@
 @section('content')
     <div class="header">
         <div class="left">
-            <h1>List User</h1>
+            <h1>List Product</h1>
         </div>
     </div>
 
@@ -37,9 +37,6 @@
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Price regular
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Price sale
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Created_at
@@ -74,9 +71,6 @@
                             {{ $item['price_regular'] }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $item['price_sale'] }}
-                        </td>
-                        <td class="px-6 py-4">
                             {{ $item['created_at'] }}
                         </td>
                         <td class="px-6 py-4">
@@ -105,25 +99,29 @@
         </table>
         <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
             <!-- <span class="px-2 text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing
-                                                                                    <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span
-                                                                                        class="font-semibold text-gray-900 dark:text-white">1000</span>
-                                                                                </span> -->
-            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8" >
+                                                                                                <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span
+                                                                                                    class="font-semibold text-gray-900 dark:text-white">1000</span>
+                                                                                            </span> -->
+            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                 <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
-                    <a style="padding: 0 5px" class="page-link " href=" {{ url('admin/products/?page=' . $page - 1) }}" aria-label="Previous"
-                        ><span aria-hidden="true">&laquo;</span></a>
+                    <a style="padding: 0 5px" class="page-link " href=" {{ url('admin/products/?page=' . $page - 1) }}"
+                        aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
                 </li>
 
-            @for ($i = 1; $i <= $totalPage; $i++) <li class="page-item {{ $i == $page ? 'active' : '' }}">
-                <a style="padding: 0 5px" class="page-link" href="{{ url('admin/products/?page=') . $i }}">{{ $i }}</a>
-                </li>
+                @for ($i = 1; $i <= $totalPage; $i++)
+                    <li class="page-item {{ $i == $page ? 'active' : '' }}">
+                        <a style="padding: 0 5px" class="page-link"
+                            href="{{ url('admin/products/?page=') . $i }}">{{ $i }}</a>
+                    </li>
                 @endfor
 
                 <li class="page-item {{ $page == $totalPage ? 'disabled' : '' }}">
-                    <a style="padding: 0 5px" class="page-link " href="{{ $page < $totalPage ? url('admin/products/?page=' . $page + 1) : '' }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                    <a style="padding: 0 5px" class="page-link "
+                        href="{{ $page < $totalPage ? url('admin/products/?page=' . $page + 1) : '' }}"
+                        aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
                 </li>
 
-        </ul>
-    </nav>
+            </ul>
+        </nav>
     </div>
 @endsection

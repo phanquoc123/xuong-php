@@ -16,6 +16,7 @@ class Product extends Model
                 'p.category_id',
                 'p.name',
                 'p.price_regular',
+                'p.price_sale',
                 'p.img_thumbnail',
                 'p.created_at',
                 'p.updated_at',
@@ -119,6 +120,7 @@ class Product extends Model
 
         return [$data, $totalPage];
     }
+<<<<<<< HEAD
     // public function paginateProducts($page = 1, $perPage = 5)
     // {
     //     $queryBuilder = clone ($this->queryBuilder);
@@ -133,6 +135,8 @@ class Product extends Model
 
     //     return [$data, $totalPage];
     // }
+=======
+>>>>>>> 305d7f756da4a215a5573573f3a4ccf9a75ab1aa
     public function findByID($id)
     {
         return $this->queryBuilder

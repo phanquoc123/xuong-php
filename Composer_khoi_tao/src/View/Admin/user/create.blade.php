@@ -7,6 +7,13 @@
     <div class="header">
         <div class="left ">
             <h1>Add User</h1>
+            <ul class="breadcrumb">
+                <a href="">
+                    Product
+                </a>
+                /
+                <a href="{{ url('admin/users') }}" class="active text-blue-500">List user</a>
+            </ul>
         </div>
     </div>
     {{-- ERROR --}}
