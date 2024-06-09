@@ -29,6 +29,9 @@ Danh sách danh mục
                 <th scope="col" class="px-6 py-3">
                     Name
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +45,14 @@ Danh sách danh mục
                     </td>
                     <td class="px-6 py-4">
                         {{ $item['name'] }}
+                    </td>
+                    <td class=" gap-3 text-center">
+                        <ul class="">
+                            <li class="bg-blue-300 rounded my-2">
+                                <a href="{{ url('admin/categories/' . $item['id'] . '/edit') }}"
+                                    class="font-medium text-black dark:text-blue-500 hover:underline ">Edit</a>
+                            </li>
+                        </ul>
                     </td>
                 </tr>
             @endforeach
