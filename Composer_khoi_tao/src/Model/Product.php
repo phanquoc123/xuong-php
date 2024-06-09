@@ -48,7 +48,7 @@ class Product extends Model
             )
             ->from($this->tableName, 'p')
             ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
-            ->where('p.name LIKE :keyword And p.category_id = :category')
+            ->where('p.name LIKE :keyword AND p.category_id = :category')
             ->setParameter('keyword', '%' . $keyword . '%')
             ->setParameter('category', $category)
             ->fetchAllAssociative();
@@ -168,11 +168,4 @@ class Product extends Model
             ->fetchAssociative();
     }
 
-    // public function totalProductInShop(){
-    //     return $this->queryBuilder
-    //     ->select("COUNT(*) as $this->tableName")
-    //     ->from($this->tableName)
-        
-    //     ->fetchOne();
-    // }
 }

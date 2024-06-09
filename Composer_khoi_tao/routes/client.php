@@ -17,6 +17,3 @@ $router->get('/product/{id}',   ProductController::class    . '@detail');
 $router->get('/login',          LoginController::class       . '@showFormlogin');
 $router->post('/handle-login',  LoginController::class      . '@login');
 $router->post('/logout',        LoginController::class      . '@logout');
-
-    
-
