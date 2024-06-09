@@ -29,6 +29,37 @@ class Product extends Model
             ->fetchAllAssociative();
     }
 
+    public function paginateAdmin($page = 1, $perPage = 5)
+    {
+        $queryBuilder = clone ($this->queryBuilder);
+
+        $totalPage = ceil($this->count() / $perPage);
+        $offset = $perPage * ($page - 1);
+
+        $data =  $queryBuilder
+            ->select(
+                'p.id',
+                'p.category_id',
+                'p.name',
+                'p.price_regular',
+                'p.price_sale',
+                'p.img_thumbnail',
+                'p.created_at',
+                'p.updated_at',
+                'p.overview',
+                'p.content',
+                'c.name as c_name'
+            )
+            ->from($this->tableName, 'p')
+            ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
+            ->setFirstResult($offset)
+            ->setMaxResults($perPage)
+            ->orderBy('p.id', 'desc')
+            ->fetchAllAssociative();
+
+
+        return [$data, $totalPage];
+    }
     public function paginateDashboard($page = 1, $perPage = 4)
     {
         $queryBuilder = clone ($this->queryBuilder);

@@ -23,7 +23,7 @@ class ProductController extends Controller
 
     public function index()
     {
-       [$products , $totalPage] = $this->product->paginateProducts($_GET['page'] ?? 1 );
+       [$products , $totalPage] = $this->product->paginateAdmin($_GET['page'] ?? 1 );
 
         $this->renderAdmin('products.index', [
             'products' => $products,
