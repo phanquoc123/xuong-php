@@ -6,14 +6,7 @@
 @section('content')
     <div class="header">
         <div class="left ">
-            <h1>Add Product</h1>
-            <ul class="breadcrumb">
-                <a href="">
-                    Product
-                </a>
-                /
-                <a href="{{ url('admin/products') }}" class="active text-blue-500">List product</a>
-            </ul>
+            <h1>Add Prpduct</h1>
         </div>
     </div>
     {{-- ERROR --}}
