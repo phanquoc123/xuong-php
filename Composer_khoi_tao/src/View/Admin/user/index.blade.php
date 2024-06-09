@@ -10,9 +10,6 @@
         </div>
     </div>
 
-
-
-
     <div class="py-4">
         <a href=" {{ url('admin/users/create') }} ">
             <button type="button "
@@ -67,8 +64,8 @@
                         </td>
                         <td class="px-6 py-4">
                             {!! $item['type'] == 'admin'
-                                ? '<span class="bg-green-300 rounded px-1 text-white font-bold">admin</span>'
-                                : '<span class="bg-blue-300 rounded px-1  text-white font-bold">member</span>' !!}
+                                ? '<span class="bg-green-300 rounded px-1 text-black font-semibled">admin</span>'
+                                : '<span class="bg-blue-300 rounded px-1  text-black font-semibled">member</span>' !!}
                         </td>
                         <td class="px-6 py-4">
                             {{ $item['created_at'] }}
