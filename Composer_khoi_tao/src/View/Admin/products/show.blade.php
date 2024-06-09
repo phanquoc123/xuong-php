@@ -4,53 +4,50 @@
 @endsection
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="col-lg-12">
-            <div class="white_card card_height_100 mb_30">
-                <div class="white_card_header">
-                    <div class="box_header m-0">
-                        <div class="main-title">
-                            <h2 class="m-0">Thông tin sản phẩm : {{ $product['name'] }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="white_card_body">
-
-
-                    <div class="table-responsive">
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Trường</th>
-                                    <th scope="col">Giá trị</th>
-
-
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach ($product as $key => $value)
-                                    <tr>
-                                        <td>{{ $key }}</td>
-
-                                        <td>
-                                            @if ($key == "img_thumbnail")   
-                                                <img src="{{ asset("{$value}") }}" width="130px" height="100px"
-                                                    alt="">
-                                            @else
-                                                {{ $value }}
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+    <div class="header">
+        <div class="left ">
+            <h1> User details: {{ $product['name'] }}</h1>
         </div>
-
     </div>
+
+
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Key
+                    </th>
+                    <th></th>
+                    <th scope="col" class="px-6 py-3">
+                        Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="text-center ">
+               
+
+                @foreach ($product as $key => $value)
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
+                    <td class="px-2 py-3 ">{{ $key }}</td>
+
+                    <td>
+                        @if ($key == "img_thumbnail")   
+                        <td class="px-4 py-5 flex justify-center">
+                            <img src="{{ asset("{$value}") }}" width="130px" height="100px"
+                                alt="" style="border-radius: 10px;">
+                            </td>
+                        @else
+                        <td class="font-semibold">{{ $value }}</td>
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+
+            </tbody>
+        </table>
+    </div>
+
+    
 @endsection
