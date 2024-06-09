@@ -18,7 +18,7 @@ class CategoryController extends Controller
 
    public function index()
     {
-       [$categories , $totalPage] = $this->category->paginate($_GET['page'] ?? 1 );
+       [$categories , $totalPage] = $this->category->paginateCategories($_GET['page'] ?? 1 );
 
         $this->renderAdmin('categories.index', [
             'categories' => $categories,
