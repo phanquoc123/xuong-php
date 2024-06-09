@@ -19,12 +19,12 @@
 		
 
 	<!-- Slider -->
-    @include('layouts.partials.slide')
+    {{-- @include('layouts.partials.slide') --}}
 	
 
 
 	<!-- Banner -->
-    @include('layouts.partials.banner')
+    {{-- @include('layouts.partials.banner') --}}
 	
 
      

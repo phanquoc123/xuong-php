@@ -10,7 +10,10 @@
 @section('title')
     Trang chu
 @endsection
+@include('layouts.partials.slide')
+@include('layouts.partials.banner')
 @section('content')
+
     <div class="row isotope-grid">
         @foreach ($products as $item)
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
