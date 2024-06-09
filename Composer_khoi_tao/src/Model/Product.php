@@ -143,4 +143,12 @@ class Product extends Model
             ->setParameter(0, $id)
             ->fetchAssociative();
     }
+
+    // public function totalProductInShop(){
+    //     return $this->queryBuilder
+    //     ->select("COUNT(*) as $this->tableName")
+    //     ->from($this->tableName)
+        
+    //     ->fetchOne();
+    // }
 }

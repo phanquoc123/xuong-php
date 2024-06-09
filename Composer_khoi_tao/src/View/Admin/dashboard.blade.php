@@ -15,18 +15,21 @@
         <li>
             <i class='bx bx-calendar-check'></i>
             <span class="info">
+               
                 <h3>
-                    1,074
+                    {{ $totalProduct }}
                 </h3>
-                <p>Paid Order</p>
+         
+               
+                <p>Tổng số sản phẩm </p>
             </span>
         </li>
         <li><i class='bx bx-show-alt'></i>
             <span class="info">
                 <h3>
-                    3,944
+                    {{ $totalUser }}
                 </h3>
-                <p>Site Visit</p>
+                <p>Tổng số tài khoản</p>
             </span>
         </li>
         <li><i class='bx bx-line-chart'></i>
