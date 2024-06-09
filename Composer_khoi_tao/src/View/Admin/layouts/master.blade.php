@@ -1,45 +1,39 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
-<!-- Mirrored from demo.dashboardpack.com/sales-html/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 May 2024 07:23:13 GMT -->
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Responsive Dashboard Design #2 | AsmrProg</title>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title> @yield('title')</title>
-
-
-  @include('layouts.partials.head')
+    @include('layouts.partials.head')
 </head>
 
-<body class="crm_body_bg">
+<body>
+
+    <!-- Sidebar -->
+    @include('layouts.partials.sidebar')
+
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        @include('layouts.partials.nav')
+
+        <!-- End of Navbar -->
 
 
-    @include('layouts.partials.nav')
+        <main>
+            @yield('content')
+          
 
-    <section class="main_content dashboard_part large_header_bg">
+        </main>
 
-        @include('layouts.partials.topbav')
-
-        <div class="main_content_iner overly_inner ">
-            <div class="container-fluid p-0 ">
-
-              @yield('content')
-            </div>
-        </div>
-
-        @include('layouts.partials.footer')
-    </section>
-
-
-    @include('layouts.components.chat')
+    </div>
 
     @include('layouts.partials.script')
-    
-  @include('layouts.partials.head')
 </body>
-
-<!-- Mirrored from demo.dashboardpack.com/sales-html/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 May 2024 07:24:00 GMT -->
 
 </html>

@@ -4,7 +4,7 @@ namespace Quocpa44\ComposerKhoiTao\Model;
 
 use Quocpa44\ComposerKhoiTao\Common\Model;
 
-class Category extends Model
+class OrderDetail extends Model
 {
-   protected string $tableName = 'categories';
+   protected string $tableName = 'order_details';
 }
