@@ -20,8 +20,6 @@ class User extends Model{
             ->fetchAssociative();
     }
 
-   
-
 
 }
 
