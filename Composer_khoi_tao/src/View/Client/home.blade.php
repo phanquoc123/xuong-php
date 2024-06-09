@@ -70,7 +70,7 @@
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
-        </ul>
+        </ul>   
     </nav>
 @endsection
 
