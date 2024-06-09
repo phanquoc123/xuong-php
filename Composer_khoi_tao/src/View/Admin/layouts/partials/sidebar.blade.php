@@ -6,7 +6,7 @@
     </a>
     <ul class="side-menu">
         <li><a href="{{ url('admin/') }}"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-        <li><a href="{{ url('admin/products') }}"><i class='bx bx-store-alt'></i>Shop</a></li>
+        <li><a href="{{ url('admin/products') }}"><i class='bx bx-store-alt'></i>Products</a></li>
         {{-- <li class=""><a href="#"><i class='bx bx-analyse'></i>Analytics</a></li> --}}
         <li><a href="{{ url('admin/categories') }}"><i class='bx bx-message-square-dots'></i>Catergoriess</a></li>
         <li><a href="{{ url('admin/users') }}"><i class='bx bx-group'></i>Users</a></li>
