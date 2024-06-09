@@ -11,12 +11,11 @@
     </div>
 
     <div class="py-4">
-        <a href=" {{ url('admin/users/create') }} ">
+        <a href=" {{ url('admin/products/create') }} ">
             <button type="button "
                 class="w-full focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                 Add More
             </button>
-
         </a>
     </div>
 
@@ -31,16 +30,22 @@
                         Name
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
+                        Category
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Type
+                        Image
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Created_At
+                        Price regular
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Updated_At
+                        Price sale
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Created_at
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Updated_at
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -60,13 +65,22 @@
                             {{ $item['name'] }}
                         </th>
                         <td class="px-6 py-4">
+                            {{ $item['c_name'] }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <img src="{{ asset($item['img_thumbnail']) }}" alt="" width="130" height="100">
+                        </td>
+                        <td class="px-6 py-4">
                             {{ $item['price_regular'] }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $item['price_sale'] }}
                         </td>
                         <td class="px-6 py-4">
-                            <img src="{{ asset($item['img_thumbnail']) }}" alt="" width="130" height="100">
+                            {{ $item['created_at'] }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $item['updated_at'] }}
                         </td>
 
                         <td class=" gap-3 text-center">
@@ -91,9 +105,9 @@
         </table>
         <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
             <!-- <span class="px-2 text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing
-                                                                                    <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span
-                                                                                        class="font-semibold text-gray-900 dark:text-white">1000</span>
-                                                                                </span> -->
+                                                                                                                                                    <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span
+                                                                                                                                                        class="font-semibold text-gray-900 dark:text-white">1000</span>
+                                                                                                                                                </span> -->
             <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                 <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
                     <a class="page-link " href=" {{ url('admin/users/?page=' . $page - 1) }}" aria-label="Previous"
