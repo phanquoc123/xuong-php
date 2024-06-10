@@ -19,7 +19,7 @@ class CartDetail extends Model
 
          ->fetchAssociative();
    }
-   
+
    public function deleteByCartID($cartID)
    {
       return $this->queryBuilder
@@ -39,6 +39,7 @@ class CartDetail extends Model
 
          ->executeQuery();
    }
+
    public function updateByCartIDAndProductID($cartID, $productID, $quantity)
    {
       $query = $this->queryBuilder->update($this->tableName);

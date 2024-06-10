@@ -21,10 +21,7 @@ class CartController extends Controller
         $this->cart = new Cart();
         $this->cartDetail = new CartDetail();
     }
-    public function detail()
-    {
-        $this->renderClient('cart');
-    }
+
     public function add()
     { // thêm vào giỏ hàng
         // Lấy thông tin sản phẩm theo ID
@@ -65,10 +62,9 @@ class CartController extends Controller
 
                 $this->cartDetail->deleteByCartID($cartID);
 
-                $totalPrice = 0; // Initialize a variable to store the total price
 
                 foreach ($_SESSION[$key] as $productID => $item) {
-                 
+
                     $this->cartDetail->insert([  // Insert cart details into a database table (likely named 'cart_detail')
                         'cart_id' => $cartID,
                         'product_id' => $productID,

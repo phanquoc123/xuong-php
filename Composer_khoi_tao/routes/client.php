@@ -5,6 +5,7 @@ use Quocpa44\ComposerKhoiTao\Controller\Client\CartController;
 use Quocpa44\ComposerKhoiTao\Controller\Client\ContactController;
 use Quocpa44\ComposerKhoiTao\Controller\Client\HomeController;
 use Quocpa44\ComposerKhoiTao\Controller\Client\LoginController;
+use Quocpa44\ComposerKhoiTao\Controller\Client\OrderController;
 use Quocpa44\ComposerKhoiTao\Controller\Client\ProductController;
 
 $router->get('/',               HomeController::class       . '@index');
@@ -25,3 +26,5 @@ $router->get('/cart/remove',      CartController::class         . '@remove');
 $router->get('/cart/detail',      CartController::class         . '@detail');
 $router->get('/cart/quantityDec', CartController::class       . '@quantityDec');
 $router->get('/cart/quantityInc', CartController::class       . '@quantityInc');
+
+$router->post('/order/checkout',   OrderController::class         . '@checkout');
