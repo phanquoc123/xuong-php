@@ -12,20 +12,14 @@ $router->get('/',               HomeController::class       . '@index');
 $router->get('/about',          AboutController::class      . '@index');
 $router->get('/contact',        ContactController::class    . '@index');
 $router->post('/contact/store', ContactController::class    . '@store');
+
 $router->get('/product',        ProductController::class    . '@index');
 $router->get('/product/{id}',   ProductController::class    . '@detail');
 
 $router->get('/login',          LoginController::class       . '@showFormlogin');
-$router->post('/handle-login',  LoginController::class      . '@login');
-$router->get('/logout',        LoginController::class      . '@logout');
+$router->post('/handle-login',  LoginController::class       . '@login');
+$router->get('/logout',         LoginController::class       . '@logout');
 
-$router->mount(
-    '/cart',
-    function () use ($router) {
-        $router->get('/add',         CartController::class         . '@add');
-        $router->get('/quantityDec', CartController::class         . '@quantityDec');
-        $router->get('/quantityInc', CartController::class         . '@quantityInc');
-        $router->get('/remove',      CartController::class         . '@remove');
-        $router->get('/detail',      CartController::class         . '@detail');
-    }
-);
+$router->post('/cart/add',        CartController::class         . '@add');
+$router->get('/cart/remove',      CartController::class         . '@remove');
+$router->get('/cart/detail',      CartController::class         . '@detail');

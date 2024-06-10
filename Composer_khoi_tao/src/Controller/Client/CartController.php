@@ -25,8 +25,7 @@ class CartController extends Controller
     public function add()
     { // thêm vào giỏ hàng
         // Lấy thông tin sản phẩm theo ID
-        $product = $this->product->findByID($_GET['productID']);
-
+        $product = $this->product->findByID($_POST['productID']);
         // Khởi tạo SESSION cart
         // Check n đang đang đăng nhập hay không
         $key = 'cart';
@@ -36,10 +35,10 @@ class CartController extends Controller
 
         if (!isset($_SESSION[$key][$product['id']])) {
 
-            $_SESSION[$key][$product['id']] = $product + ['quantity' => $_GET['quantity'] ?? 1];
+            $_SESSION[$key][$product['id']] = $product + ['quantity' => $_POST['quantity'] ?? 1];
         } else {
 
-            $_SESSION[$key][$product['id']]['quantity'] += $_GET['quantity'];
+            $_SESSION[$key][$product['id']]['quantity'] += $_POST['quantity'];
         }
 
         // Nếu mà nó đăng nhập thì mình phải lưu n vào trong csdl
@@ -47,7 +46,6 @@ class CartController extends Controller
         if (isset($_SESSION['user'])) {
             $conn = $this->cart->getConnection();
 
-            // $conn->beginTransaction();
             try {
 
                 $cart = $this->cart->findByUserID($_SESSION['user']['id']);
@@ -58,31 +56,28 @@ class CartController extends Controller
                     ]);
                 }
 
-
                 $cartID = $cart['id'] ?? $conn->lastInsertId();
-                echo 1;
-                Helper::debug($cartID);
 
                 $_SESSION['cart_id'] = $cartID;
 
-                // $this->cartDetail->deleteByCartID($cartID);
+                $this->cartDetail->deleteByCartID($cartID);
 
                 foreach ($_SESSION[$key] as $productID => $item) {
-                    $this->cartDetail->insert([
-                        'cart_id' => $cartID,
-                        'product_id' => $productID,
-                        'quantity' => $item['quantity']
-                    ]);
+                    if ($productID == $product['id']) {
+                        $this->cartDetail->insert([
+                            'cart_id' => $cartID,
+                            'product_id' => $productID,
+                            'quantity' => $item['quantity']
+                        ]);
+                    }
                 }
             } catch (\Throwable $th) {
                 // echo $th->getMessage();die;
                 //throw $th;
             }
         }
-        Helper::debug($_SESSION[$key]);
 
-
-        header('Location: ' . url('product/' . $_GET['productID']));
+        header('Location: ' . url('product/' . $_POST['productID']));
         exit;
     }
 }
