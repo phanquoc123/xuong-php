@@ -72,10 +72,10 @@ Danh sách User
                     : '<span class="bg-blue-300 rounded px-1  text-black font-semibled">member</span>' !!}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $item['created_at'] }}
+                    {{ date('d/m/Y H:i:s', strtotime($item['created_at']))  }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $item['updated_at'] }}
+                    {{ date('d/m/Y H:i:s', strtotime($item['updated_at']))  }}
                 </td>
 
                 <td class=" gap-3 text-center">
