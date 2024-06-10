@@ -16,7 +16,7 @@
 	@include('layouts.partials.header')
 
 	<!-- Cart -->
-	@include('layouts.partials.cart')
+	{{-- @include('layouts.partials.cart') --}}
 
 
 	<!-- Slider -->

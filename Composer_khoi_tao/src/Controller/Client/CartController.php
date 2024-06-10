@@ -86,6 +86,7 @@ class CartController extends Controller
         $this->renderClient('cart');
     }
 
+
     public function quantityInc()
     { // Tăng số lượng
         // Lấy ra dữ liệu từ cart_details để đảm bảo n có tồn tại bản ghi
