@@ -94,20 +94,24 @@ Cart
                             </span>
                         </div>
                     </div>
-                    <form action="{{ url('order/checkout') }} " method="POST">
-                        <div class="flex-w flex-t bor12 p-t-15 p-b-30 ">
-                            <div class="size-208 w-full-ssm">
-                                <span class="stext-110 cl2">
-                                    Info:
-                                </span>
-                            </div>
-                            <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                                <div class="p-t-15">
-                                    <div class="bor8 bg0 m-b-12">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name"
-                                        value="{{ $_SESSION['user']['name'] ?? null }}" name="user_name"
-                                        class="p-2 text-sm w-full outline outline-2 outline-gray-300">
-                                    </div>
+
+                    <div class="flex-w flex-t bor12 p-t-15 p-b-30 ">
+                        <div class="size-208 w-full-ssm">
+                            <span class="stext-110 cl2">
+                               Info:
+                            </span>
+                        </div>
+
+                        <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                            
+                            
+                            <div class="p-t-15">
+                            
+
+                               
+                                <div class="bor8 bg0 m-b-12">
+                                   <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
+                                </div>
 
                                     <div class="bor8 bg0 m-b-22">
                                         <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name"
@@ -126,6 +130,9 @@ Cart
                                         class="p-2 text-sm w-full outline outline-2 outline-gray-300">
                                     </div>
                                 </div>
+                                
+                               
+                                    
                             </div>
                         </div>
                     </form>
