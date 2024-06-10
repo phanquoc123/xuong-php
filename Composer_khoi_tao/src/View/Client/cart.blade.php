@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Cart
+Cart
 @endsection
 
 
@@ -71,7 +71,7 @@
                         </table>
                     </div>
 
-                    
+
                 </div>
             </div>
 
@@ -98,19 +98,19 @@
                     <div class="flex-w flex-t bor12 p-t-15 p-b-30 ">
                         <div class="size-208 w-full-ssm">
                             <span class="stext-110 cl2">
-                               Info:
+                                Info:
                             </span>
                         </div>
 
                         <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                            
-                            
-                            <div class="p-t-15">
-                            
 
-                               
+
+                            <div class="p-t-15">
+
+
+
                                 <div class="bor8 bg0 m-b-12">
-                                   <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
                                 </div>
 
                                 <div class="bor8 bg0 m-b-22">
@@ -124,9 +124,9 @@
                                 <div class="bor8 bg0 m-b-22">
                                     <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your address">
                                 </div>
-                                
-                               
-                                    
+
+
+
                             </div>
                         </div>
                     </div>
@@ -166,10 +166,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('assets/admin/css/style1.css') }}">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
@@ -182,13 +182,13 @@
             <a href="{{ url('login') }}"><button type="button" class="btn btn-primary">LOGIN</button></a>
             @endif
             @if (isset($_SESSION['user']))
-                 <form action="{{ url('logout') }}" method="post">
-               <button type="submit" class="btn btn-danger">LOGOUT</button>
+            <form action="{{ url('logout') }}" method="post">
+                <button type="submit" class="btn btn-danger">LOGOUT</button>
             </form>
-            
+
             @endif
-            
-           
+
+
         </div>
     </div>
 
