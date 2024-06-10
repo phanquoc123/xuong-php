@@ -13,16 +13,10 @@ class ContactController extends Controller
     {
 
         echo 'contact';
-
-     
     }
 
-    public function store(){
+    public function store()
+    {
         echo __FUNCTION__;
     }
 }
-
-
-
-
-?>
