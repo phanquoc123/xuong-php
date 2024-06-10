@@ -20,7 +20,10 @@ class CartController extends Controller
         $this->cart = new Cart();
         $this->cartDetail = new CartDetail();
     }
-
+    public function detail()
+    {
+        $this->renderClient('cart');
+    }
     public function add()
     {
         // thêm vào giỏ hàng
