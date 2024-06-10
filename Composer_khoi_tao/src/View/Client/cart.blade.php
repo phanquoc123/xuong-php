@@ -22,7 +22,7 @@ Cart
                                 <th class="column-6">Action</th>
                             </tr>
 
-                            @if (!empty($_SESSION['cart']) || !empty($_SESSION['cart-' . $_SESSION['user']['id']]))
+                            @if (!empty($_SESSION['cart']) || !empty($_SESSION['cart-' . (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : '')]))
                             @php
                             $cart = $_SESSION['cart'] ?? $_SESSION['cart-' . $_SESSION['user']['id']];
                             @endphp
@@ -133,28 +133,17 @@ Cart
                                 </div>
                         </div>
                     </div>
+
+                    @if (empty($_SESSION['user']))
                     <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Proceed to Checkout
-                    </button>
+                        Login To Checkout</button>
+                    @else
+                    <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" disabled>Proceed to Checkout</button>
+                    @endif
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 @endsection
-=======
-
-<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-    Proceed to Checkout
-</button>
-</div>
-</div>
-</div>
-</div>
-</form>
-@endsection
-
-
->>>>>>> d569d3a82c2951952e0c2def97caf9d2dae8dbc7
