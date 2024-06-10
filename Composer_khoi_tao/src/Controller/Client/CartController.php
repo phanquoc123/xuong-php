@@ -84,7 +84,11 @@ class CartController extends Controller
     public function detail()
     {
         $this->renderClient('cart');
+        
+        $this->renderClient('home');
+        $this->renderClient('product');
     }
+    
 
     public function quantityInc()
     { // Tăng số lượng
