@@ -22,6 +22,8 @@ $router->get('/login',          LoginController::class       . '@showFormlogin')
 $router->post('/handle-login',  LoginController::class       . '@login');
 $router->get('/logout',         LoginController::class       . '@logout');
 
-$router->post('/cart/add',      CartController::class         . '@add');
-$router->get('/cart/remove',    CartController::class         . '@remove');
-$router->get('/cart/detail',    CartController::class         . '@detail');
+$router->post('/cart/add',        CartController::class         . '@add');
+$router->get('/cart/remove',      CartController::class         . '@remove');
+$router->get('/cart/detail',      CartController::class         . '@detail');
+$router->get('/cart/quantityDec', CartController::class       . '@quantityDec');
+$router->get('/cart/quantityInc', CartController::class       . '@quantityInc');

@@ -26,15 +26,15 @@
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
                             <img src="{{asset($item['img_thumbnail'])}}" alt="IMG">
-                        </div>
+                        </d iv>
 
                         <div class="header-cart-item-txt p-t-8">
                             <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                White Shirt Pleat
+                               {{ $item['name'] }}
                             </a>
 
                             <span class="header-cart-item-info">
-                                1 x $19.00
+                               
                             </span>
                         </div>
                     </li>

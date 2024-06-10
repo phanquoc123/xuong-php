@@ -62,14 +62,15 @@ class CartController extends Controller
 
                 $this->cartDetail->deleteByCartID($cartID);
 
+                $totalPrice = 0; // Initialize a variable to store the total price
+
                 foreach ($_SESSION[$key] as $productID => $item) {
-                    if ($productID == $product['id']) {
-                        $this->cartDetail->insert([
-                            'cart_id' => $cartID,
-                            'product_id' => $productID,
-                            'quantity' => $item['quantity']
-                        ]);
-                    }
+
+                    $this->cartDetail->insert([  // Insert cart details into a database table (likely named 'cart_detail')
+                        'cart_id' => $cartID,
+                        'product_id' => $productID,
+                        'quantity' => $item['quantity']
+                    ]);
                 }
             } catch (\Throwable $th) {
                 // echo $th->getMessage();die;
@@ -84,11 +85,8 @@ class CartController extends Controller
     public function detail()
     {
         $this->renderClient('cart');
-        
-        $this->renderClient('home');
-        $this->renderClient('product');
     }
-    
+
 
     public function quantityInc()
     { // Tăng số lượng
@@ -110,6 +108,50 @@ class CartController extends Controller
                 $_GET['productID'],
                 $_SESSION[$key][$_GET['productID']]['quantity']
             );
+        }
+
+        header('Location: ' . url('cart/detail'));
+        exit;
+    }
+
+    public function quantityDec()
+    { // giảm số lượng
+        // Lấy ra dữ liệu từ cart_details để đảm bảo n có tồn tại bản ghi
+
+        // Thay đổi trong SESSION
+        $key = 'cart';
+        if (isset($_SESSION['user'])) {
+            $key .= '-' . $_SESSION['user']['id'];
+        }
+
+        if ($_SESSION[$key][$_GET['productID']]['quantity'] > 1) {
+            $_SESSION[$key][$_GET['productID']]['quantity'] -= 1;
+        }
+
+        // Thay đổi trong DB
+        if (isset($_SESSION['user'])) {
+            $this->cartDetail->updateByCartIDAndProductID(
+                $_GET['cartID'],
+                $_GET['productID'],
+                $_SESSION[$key][$_GET['productID']]['quantity']
+            );
+        }
+
+        header('Location: ' . url('cart/detail'));
+        exit;
+    }
+
+    public function remove()
+    { // xóa item or xóa trắng
+        $key = 'cart';
+        if (isset($_SESSION['user'])) {
+            $key .= '-' . $_SESSION['user']['id'];
+        }
+
+        unset($_SESSION[$key][$_GET['productID']]);
+
+        if (isset($_SESSION['user'])) {
+            $this->cartDetail->deleteByCartIDAndProductID($_GET['cartID'], $_GET['productID']);
         }
 
         header('Location: ' . url('cart/detail'));
