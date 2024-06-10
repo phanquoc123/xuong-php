@@ -45,7 +45,6 @@ class Model
             ->fetchOne();
     }
 
-
     public function paginate($page = 1, $perPage = 10)
     {
         $offset = $perPage * ($page - 1);

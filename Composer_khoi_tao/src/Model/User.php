@@ -9,8 +9,8 @@ class User extends Model
     protected string $tableName = 'users';
 
 
-
-
+    // tạo một function findByUser để kiểm tra trong phần CartController
+    
     public function findByEmail($email)
     {
         return $this->queryBuilder

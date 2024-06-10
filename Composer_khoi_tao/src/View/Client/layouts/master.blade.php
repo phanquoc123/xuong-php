@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>@yield('title')</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-     @include('layouts.partials.head')
-    
+	@include('layouts.partials.head')
+
 </head>
+
 <body class="animsition">
-	
+
 	<!-- Header -->
 	@include('layouts.partials.header')
 
 	<!-- Cart -->
 	@include('layouts.partials.cart')
 
-		
 
 	<!-- Slider -->
-    {{-- @include('layouts.partials.slide') --}}
-	
+	{{-- @include('layouts.partials.slide') --}}
+
 
 
 	<!-- Banner -->
-    {{-- @include('layouts.partials.banner') --}}
-	
+	{{-- @include('layouts.partials.banner') --}}
 
-     
+
+
+
+
 	<!-- Product -->
 	<section class="bg0 p-t-23 p-b-140">
 		<div class="container">
-	{{-- @include('layouts.partials.phanbenduoiOverview') --}}
-	@yield('content')
-</div>
-</section>
+			{{-- @include('layouts.partials.phanbenduoiOverview') --}}
+			@yield('content')
+		</div>
+	</section>
 
-	
+
 
 
 	<!-- Footer -->
@@ -204,7 +207,8 @@
 		</div>
 	</div> --}}
 
-<!--===============================================================================================-->	
-@include('layouts.partials.script')
+	<!--===============================================================================================-->
+	@include('layouts.partials.script')
 </body>
+
 </html>

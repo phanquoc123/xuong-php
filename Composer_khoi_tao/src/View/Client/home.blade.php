@@ -29,7 +29,7 @@
                             </a>
 
                             <span class="stext-105 cl3">
-                                {{ $item['price_regular'] }}
+                                ${{ $item['price_regular'] }}
                             </span>
                         </div>
 

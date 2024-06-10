@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Cart
+Cart
 @endsection
 
 
@@ -71,7 +71,7 @@
                         </table>
                     </div>
 
-                    
+
                 </div>
             </div>
 
@@ -113,23 +113,29 @@
                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
                                 </div>
 
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
-                                </div>
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name"
+                                        value="{{ $_SESSION['user']['email'] ?? null }}" name="user_email"
+                                        class="p-2 text-sm w-full outline outline-2 outline-gray-300">
+                                    </div>
 
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your phone">
-                                </div>
-
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your address">
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your phone"
+                                        value="{{ $_SESSION['user']['phone'] ?? null }}" name="user_phone"
+                                        class="p-2 text-sm w-full outline outline-2 outline-gray-300">
+                                    </div>
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your address"
+                                        value="{{ $_SESSION['user']['address'] ?? null }} " name="user_address"
+                                        class="p-2 text-sm w-full outline outline-2 outline-gray-300">
+                                    </div>
                                 </div>
                                 
                                
                                     
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                     <div class="flex-w flex-t p-t-27 p-b-33">
                         <div class="size-208">
@@ -166,10 +172,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('assets/admin/css/style1.css') }}">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
@@ -182,13 +188,13 @@
             <a href="{{ url('login') }}"><button type="button" class="btn btn-primary">LOGIN</button></a>
             @endif
             @if (isset($_SESSION['user']))
-                 <form action="{{ url('logout') }}" method="post">
-               <button type="submit" class="btn btn-danger">LOGOUT</button>
+            <form action="{{ url('logout') }}" method="post">
+                <button type="submit" class="btn btn-danger">LOGOUT</button>
             </form>
-            
+
             @endif
-            
-           
+
+
         </div>
     </div>
 
