@@ -59,17 +59,18 @@
                     </a>
                     @if (!is_logged())
                     <a href="{{ url('login') }}" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " data-notify="0">
-                        <span class="material-symbols-outlined">
-                            login
-                        </span>
+                        <span   class="material-symbols-outlined">
+                            person
+                            </span>
                     </a>
                     @endif
 
                     @if (is_logged())
                     <form action="{{ url('logout') }}" method="post">
                         <button type="submit" class="material-symbols-outlined dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-                            logout
+                             person_off
                         </button>
+                        
                     </form>
                     @endif
 
