@@ -50,6 +50,7 @@ class CartController extends Controller
             $_SESSION[$key][$product['id']]['quantity'] += $_POST['quantity'];
         }
 
+        // Helper::debug($_SESSION['user']['id']);
         // Nếu mà nó đăng nhập thì mình phải lưu n vào trong csdl
 
         if (isset($_SESSION['user'])) {

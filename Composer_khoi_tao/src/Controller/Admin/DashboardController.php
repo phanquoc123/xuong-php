@@ -12,7 +12,7 @@ class DashboardController extends Controller
     private Product $product;
     private User $user;
 
-
+    
     public function __construct()
     {
         $this->product = new Product();

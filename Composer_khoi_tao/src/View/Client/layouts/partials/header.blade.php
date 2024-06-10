@@ -50,9 +50,11 @@
                         <i class="zmdi zmdi-search"></i>
                     </div>
 
-                   <a href="{{ url('cart/detail') }}"><div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  js-show-cart" >
-                        <i class="zmdi zmdi-shopping-cart"></i>
-                    </div></a> 
+                    <a href="{{ url('cart/detail') }}">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="3">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                        </div>
+                    </a>
 
                     <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
                         <i class="zmdi zmdi-favorite-outline"></i>
@@ -60,7 +62,7 @@
                     @if (!is_logged())
                     <a href="{{ url('login') }}" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " data-notify="0">
                         <span class="material-symbols-outlined">
-                            login
+                            person
                         </span>
                     </a>
                     @endif
@@ -68,8 +70,9 @@
                     @if (is_logged())
                     <form action="{{ url('logout') }}" method="post">
                         <button type="submit" class="material-symbols-outlined dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-                            logout
+                            person_off
                         </button>
+
                     </form>
                     @endif
 

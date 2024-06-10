@@ -12,7 +12,7 @@
 
        
         @foreach ($categories as $item)
-    <a href="{{ url("product/{$item['id']}/cate") }}">
+    <a href="{{ url("categorypr/{$item['id']}/cate") }}">
         <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" >
           {{ $item['name'] }}
         </button>

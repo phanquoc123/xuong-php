@@ -105,10 +105,10 @@ Danh sách sản phẩm
                         {{ $item['price_regular'] }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $item['created_at'] }}
+                        {{ date('d/m/Y H:i:s', strtotime($item['created_at']))  }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $item['updated_at'] }}
+                        {{ date('d/m/Y H:i:s', strtotime($item['updated_at']))  }}
                     </td>
 
                     <td class=" gap-3 text-center">

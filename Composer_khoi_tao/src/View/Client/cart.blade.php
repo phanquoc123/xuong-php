@@ -22,7 +22,7 @@ Cart
                                 <th class="column-6">Action</th>
                             </tr>
 
-                            @if (!empty($_SESSION['cart']) || !empty($_SESSION['cart-' . (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : '')]))
+                            @if (!empty($_SESSION['cart']) || !empty($_SESSION['cart-' . $_SESSION['user']['id']]))
                             @php
                             $cart = $_SESSION['cart'] ?? $_SESSION['cart-' . $_SESSION['user']['id']];
                             @endphp
@@ -42,7 +42,7 @@ Cart
                                     <div class="wrap-num-product flex-w m-l-auto m-r-0">
                                         @php
                                         $url = url('cart/quantityDec') . '?productID=' . $item['id'];
-                                        if (isset($_SESSION['cart-' . $_SESSION['user']['id']])) {
+                                        if (isset($_SESSION['cart-' . $_SESSION['user']['id']]) && isset($_SESSION['cart'])) {
                                         $url .= '&cartID=' . $_SESSION['cart_id'];
                                         }
                                         @endphp
@@ -52,7 +52,7 @@ Cart
 
                                         @php
                                         $url = url('cart/quantityInc') . '?productID=' . $item['id'];
-                                        if (isset($_SESSION['cart-' . $_SESSION['user']['id']])) {
+                                        if (isset($_SESSION['cart-' . $_SESSION['user']['id']]) && isset($_SESSION['cart'])) {
                                         $url .= '&cartID=' . $_SESSION['cart_id'];
                                         }
                                         @endphp
@@ -65,7 +65,7 @@ Cart
                                 @php
                                 $url = url('cart/remove') . '?productID=' . $item['id'];
                                 if (isset($_SESSION['user'])) {
-                                if (!empty($_SESSION['cart-' . $_SESSION['user']['id']])) {
+                                if (!empty($_SESSION['cart-' . $_SESSION['user']['id']]) && !empty($_SESSION['cart'])) {
                                 $url .= '&cartID=' . $_SESSION['cart_id'];
                                 }
                                 }
@@ -134,12 +134,15 @@ Cart
                         </div>
                     </div>
 
-                    @if (!empty($_SESSION['user']))
-                    <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" disabled>Proceed to Checkout</button>
+
+                    @if (empty($_SESSION['cart-' . $_SESSION['user']['id']]))
+                    <a href="{{ url('product') }}" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">Shop Now</a>
                     @else
-                    <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Login To Checkout</button>
+                    
+                    <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">Proceed to Checkout</button>
                     @endif
+
+
                     </form>
                 </div>
             </div>

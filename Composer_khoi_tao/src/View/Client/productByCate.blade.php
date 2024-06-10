@@ -46,25 +46,6 @@
             </div>
         @endforeach
     </div>
-    <nav style="margin-left:45%" aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item {{ $page == 1 ? 'disabled' : '' }}">
-                <a class="page-link " href=" {{ url('product/?page=' . $page - 1) }}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-
-            @for ($i = 1; $i <= $totalPage; $i++)
-                <li class="page-item {{ $i == $page ? 'active' : '' }}"><a class="page-link"
-                        href="{{ url('product/?page=') . $i }}">{{ $i }}</a></li>
-            @endfor
-
-            <li class="page-item {{ $page == $totalPage ? 'disabled' : '' }}">
-                <a class="page-link " href="{{ $page < $totalPage ? url('product/?page=' . $page + 1) : '' }}" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    
 @endsection
 
