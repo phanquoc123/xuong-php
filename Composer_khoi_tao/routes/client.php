@@ -22,8 +22,8 @@ $router->post('/logout',        LoginController::class      . '@logout');
 $router->mount('/cart', function () use ($router) {
     $router->get('/add',         CartController::class         . '@add');
     $router->get('/quantityDec', CartController::class         . '@quantityDec');
-    $router->get('/remove',      CartController::class         . '@remove');
     $router->get('/quantityInc', CartController::class         . '@quantityInc');
+    $router->get('/remove',      CartController::class         . '@remove');
     $router->get('/detail',      CartController::class         . '@detail');
 }
 );
