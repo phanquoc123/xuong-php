@@ -9,7 +9,6 @@ use Quocpa44\ComposerKhoiTao\Model\User;
 
 class LoginController extends Controller
 {
-
     private User $user;
 
     public function __construct()
@@ -17,23 +16,22 @@ class LoginController extends Controller
         $this->user = new User();
     }
 
-
-
-    public function showFormlogin()
+    public function showFormLogin()
     {
+        avoid_login();
 
-        avoid_formLogin();
         $this->renderClient('login');
     }
 
     public function login()
     {
-        avoid_formLogin();
-        try {
-            $user =  $this->user->findByEmail($_POST['email']);
+        avoid_login();
 
-            if(empty($user)){
-                throw new \Exception('Không tồn tại :' . $_POST['email']);
+        try {
+            $user = $this->user->findByEmail($_POST['email']);
+
+            if (empty($user)) {
+                throw new \Exception('Không tồn tại email: ' . $_POST['email']);
             }
 
             $flag = password_verify($_POST['password'], $user['password']);
@@ -41,28 +39,31 @@ class LoginController extends Controller
 
                 $_SESSION['user'] = $user;
 
-                if($user['type'] == 'admin'){
-                    header("Location: " . url("admin/"));
-                exit(); 
-                }else{
-                    header("Location: " . url());
-                exit(); 
+                unset($_SESSION['cart']);
+
+                if ($user['type'] == 'admin') {
+                    header('Location: ' . url('admin/'));
+                    exit;
                 }
 
-               
+                header('Location: ' . url());
+                exit;
             }
 
             throw new \Exception('Password không đúng');
         } catch (\Throwable $th) {
             $_SESSION['error'] = $th->getMessage();
-            header("Location: " . url("login"));
-             exit();
+
+            header('Location: ' . url('auth/login'));
+            exit;
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
+        unset($_SESSION['cart-' . $_SESSION['user']['id']]);
         unset($_SESSION['user']);
-        header('Location:' . url());
-        exit();
+        header('Location: ' . url());
+        exit;
     }
 }

@@ -9,57 +9,39 @@ if (!function_exists('asset')) {
     }
 }
 
-
 if (!function_exists('url')) {
-    function url($uri = null)
+    function url($uri = null) // tránh hai dấu /
     {
         return $_ENV['BASE_URL'] . $uri;
     }
 }
 
-// if (!function_exists('show_upload')) {
-//     function show_upload($path)
-//     {
-//         return $_ENV['BASE_URL'] . ' /assets/ '. $path;
-//     }
-// }
-
-if (!function_exists('is_logged')) { // Kiểm tra xem đã đăng nhập hay chưa
-    // Nếu rồi thì khơir tạo SESSION
-
+if (!function_exists('is_logged')) { // Check đã đăng nhập
     function is_logged()
     {
-        return (isset($_SESSION['user']));
+        return !empty($_SESSION['user']);
     }
 }
 
-if (!function_exists('is_admin')) { // Kiểm tra xem có phải là tìa khoản ADMIN không ?
-    // Nếu rồi thì khơir tạo SESSION
-
+if (!function_exists('is_admin')) { // Check là admin
     function is_admin()
     {
         return is_logged() && $_SESSION['user']['type'] == 'admin';
     }
 }
 
-
-if (!function_exists('avoid_formLogin')) { // Nếu đã đăng nhập rồi thì KHÔNG THỂ VÀO LẠI TRANG LOGIN NỮA
-    // Nếu rồi thì khơir tạo SESSION
-
-    function avoid_formLogin()
+if (!function_exists('avoid_login')) { // Bỏ qua trang Login khi đã đăng nhập
+    function avoid_login()
     {
-        if(is_logged()){
+        if (is_logged()) {
 
-            if($_SESSION['user']['type'] == 'admin'){
-                header('Location:' . url('admin/'));
-                exit();
-            }else{
-                header('Location:' . url());
-                exit();
+            if ($_SESSION['user']['type'] == 'admin') {
+                header('Location: ' . url('admin/'));
+                exit;
             }
 
+            header('Location: ' . url());
+            exit;
         }
-       
     }
 }
-
