@@ -98,38 +98,44 @@ Cart
                     <div class="flex-w flex-t bor12 p-t-15 p-b-30 ">
                         <div class="size-208 w-full-ssm">
                             <span class="stext-110 cl2">
-                                Info:
+                               Info:
                             </span>
                         </div>
 
                         <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-
-
+                            
+                            
                             <div class="p-t-15">
+                            
 
-
-
+                               
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
+                                   <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
                                 </div>
 
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name">
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your name"
+                                        value="{{ $_SESSION['user']['email'] ?? null }}" name="user_email"
+                                        class="p-2 text-sm w-full outline outline-2 outline-gray-300">
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your phone"
+                                        value="{{ $_SESSION['user']['phone'] ?? null }}" name="user_phone"
+                                        class="p-2 text-sm w-full outline outline-2 outline-gray-300">
+                                    </div>
+                                    <div class="bor8 bg0 m-b-22">
+                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your address"
+                                        value="{{ $_SESSION['user']['address'] ?? null }} " name="user_address"
+                                        class="p-2 text-sm w-full outline outline-2 outline-gray-300">
+                                    </div>
                                 </div>
-
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your phone">
-                                </div>
-
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Enter your address">
-                                </div>
-
-
-
+                                
+                               
+                                    
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                     <div class="flex-w flex-t p-t-27 p-b-33">
                         <div class="size-208">
