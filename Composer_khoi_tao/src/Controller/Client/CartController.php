@@ -85,4 +85,30 @@ class CartController extends Controller
     {
         $this->renderClient('cart');
     }
+
+    public function quantityInc()
+    { // Tăng số lượng
+        // Lấy ra dữ liệu từ cart_details để đảm bảo n có tồn tại bản ghi
+
+        // Thay đổi trong SESSION
+        $key = 'cart';
+        if (isset($_SESSION['user'])) {
+            $key .= '-' . $_SESSION['user']['id'];
+        }
+
+
+        $_SESSION[$key][$_GET['productID']]['quantity'] += 1;
+
+        // Thay đổi trong DB
+        if (isset($_SESSION['user'])) {
+            $this->cartDetail->updateByCartIDAndProductID(
+                $_GET['cartID'],
+                $_GET['productID'],
+                $_SESSION[$key][$_GET['productID']]['quantity']
+            );
+        }
+
+        header('Location: ' . url('cart/detail'));
+        exit;
+    }
 }

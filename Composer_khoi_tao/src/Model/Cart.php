@@ -17,4 +17,13 @@ class Cart extends Model
          ->where('user_id = ?')->setParameter(0, $userID)
          ->fetchAssociative();
    }
+
+   public function deleteByUserID($cartID)
+   {
+      return $this->queryBuilder
+         ->delete($this->tableName)
+         ->where('id = ?')
+         ->setParameter(0, $cartID)
+         ->executeQuery();
+   }
 }
