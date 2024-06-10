@@ -46,10 +46,10 @@ $router->mount('/admin', function () use ($router) {
 
     $router->mount('/categories', function () use ($router) {
 
-        $router->get('/', CategoryController::class . '@index');
-        $router->get('/create', CategoryController::class . '@create');
-        $router->post('/store', CategoryController::class . '@store');
-        $router->get('/{id}/edit',   CategoryController::class . '@edit');
+        $router->get('/',             CategoryController::class . '@index');
+        $router->get('/create',       CategoryController::class . '@create');
+        $router->post('/store',       CategoryController::class . '@store');
+        $router->get('/{id}/edit',    CategoryController::class . '@edit');
         $router->post('/{id}/update', CategoryController::class . '@update');
     });
 });

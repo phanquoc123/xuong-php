@@ -31,15 +31,15 @@
 
 
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <a href="{{asset('assets/client/blog.html')}}">Blog</a>
                         </li>
 
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="{{asset('assets/client/about.html')}}">About</a>
                         </li>
 
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="{{asset('assets/client/contact.html')}}">Contact</a>
                         </li>
                     </ul>
                 </div>

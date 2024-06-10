@@ -3,6 +3,7 @@
     Danh sách tất cả sản phẩm
 @endsection
 @include('layouts.partials.banner')
+
 <div class="container">
     @include('layouts.partials.phanbenduoiOverview')
 </div>

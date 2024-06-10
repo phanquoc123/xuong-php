@@ -115,7 +115,7 @@ class Product extends Model
 
         return [$data, $totalPage];
     }
-    public function paginateShop($page = 1, $perPage = 5)
+    public function paginateShop($page = 1, $perPage = 8)
     {
         $queryBuilder = clone ($this->queryBuilder);
 
@@ -165,6 +165,17 @@ class Product extends Model
             ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
             ->where('p.id = ?')
             ->setParameter(0, $id)
+            ->fetchAssociative();
+    }
+
+    public function productByCategory($id){
+        return $this->queryBuilder
+            ->select('*')
+            ->from($this->tableName)
+            
+            ->where('category_id = ?')
+            ->setParameter('category_id', $id)
+           
             ->fetchAssociative();
     }
 }
