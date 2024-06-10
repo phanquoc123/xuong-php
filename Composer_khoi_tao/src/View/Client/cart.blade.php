@@ -134,11 +134,11 @@ Cart
                         </div>
                     </div>
 
-                    @if (empty($_SESSION['user']))
+                    @if (!empty($_SESSION['user']))
+                    <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" disabled>Proceed to Checkout</button>
+                    @else
                     <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                         Login To Checkout</button>
-                    @else
-                    <button type="submit" class="mt-2 flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" disabled>Proceed to Checkout</button>
                     @endif
                     </form>
                 </div>
