@@ -47,20 +47,12 @@ class ProductController extends Controller
     }
 
 
-    public function productByCate($id)
+    public function productByCate($category)
     {
-        // $productByCate          = $this->product->productByCategory($id);
-        // $categories             = $this->category->getAll();
-        // [$products, $totalPage] = $this->product->paginateShop($_GET['page'] ?? 1);
-        $name = 'quoc';
+        $proByCate = $this->product->productByCategory($category);
+        $this->renderClient('product', [
+            'proByCate' => $proByCate,
 
-        $this->renderClient('productByCate', [
-            'name' => $name,
-            // 'productByCate' => $productByCate,
-            // 'categories' => $categories,
-            // 'products' => $products,
-            // 'totalPage' => $totalPage,
-            // 'page' => $_GET['page'] ?? 1,
         ]);
     }
 }

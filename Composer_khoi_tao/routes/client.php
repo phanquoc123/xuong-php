@@ -16,6 +16,8 @@ $router->post('/contact/store', ContactController::class    . '@store');
 $router->get('/product',        ProductController::class    . '@index');
 $router->get('/product/{id}',   ProductController::class    . '@detail');
 
+$router->get('/product/{id}/cate',   ProductController::class    . '@productByCate');
+
 $router->get('/login',          LoginController::class       . '@showFormlogin');
 $router->post('/handle-login',  LoginController::class       . '@login');
 $router->get('/logout',         LoginController::class       . '@logout');

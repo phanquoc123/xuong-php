@@ -168,14 +168,36 @@ class Product extends Model
             ->fetchAssociative();
     }
 
-    public function productByCategory($id){
-        return $this->queryBuilder
-            ->select('*')
-            ->from($this->tableName)
+    public function productByCategory($category)
+    {
+        // return $this->queryBuilder
+        //     ->select('*')
+        //     ->from($this->tableName)
             
-            ->where('category_id = ?')
-            ->setParameter('category_id', $id)
+        //     ->where('category_id = ?')
+        //     ->setParameter('category_id', $id)
            
-            ->fetchAssociative();
+        //     ->fetchAssociative();
+
+        return $this->queryBuilder
+        ->select(
+            'p.id',
+            'p.category_id',
+            'p.name',
+            'p.price_regular',
+            'p.price_sale',
+            'p.img_thumbnail',
+            'p.created_at',
+            'p.updated_at',
+            'p.overview',
+            'p.content',
+            'c.name as c_name'
+        )
+        ->from($this->tableName, 'p')
+        ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
+        ->where(' p.category_id = :category')
+       
+        ->setParameter('category', $category)
+        ->fetchAllAssociative();
     }
 }
