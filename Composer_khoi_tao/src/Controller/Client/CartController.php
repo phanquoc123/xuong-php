@@ -80,4 +80,9 @@ class CartController extends Controller
         header('Location: ' . url('product/' . $_POST['productID']));
         exit;
     }
+
+    public function detail()
+    {
+        $this->renderClient('cart');
+    }
 }
