@@ -51,11 +51,21 @@ class ProductController extends Controller
 
     public function detail($id)
     {
-        $product = $this->product->findByID($id);
+       
+        $product = $this->product->findByIDcate($id);
 
-        $this->renderClient('product-detail', [
-            'product' => $product
-
-        ]);
+       
+        if ($product) {
+       
+            $proByCate = $this->product->productByCategoryID($product['id'], $product['category_id']);
+           
+            
+            return $this->renderClient('product-detail', [
+                'product' => $product,
+                'proByCate' => $proByCate,
+            ]);
+       
+        }
+        
     }
 }

@@ -200,4 +200,33 @@ class Product extends Model
         ->setParameter('category', $category)
         ->fetchAllAssociative();
     }
+
+    public function findByIDcate($id)
+{
+    $query = $this->queryBuilder
+        ->select('*')
+        ->from($this->tableName)
+        ->where('id = :id')
+        ->setParameter('id', $id);
+
+   
+
+    return $query->fetchAssociative();
+}
+
+public function productByCategoryID($id, $category_id)
+{
+        $query = $this->queryBuilder
+        ->select('*')
+        ->from($this->tableName)
+        ->where('id != :id')
+        ->andWhere('category_id = :category_id')
+        ->setParameter('id', $id)
+        ->setParameter('category_id', $category_id);
+    
+   
+ 
+
+    return $query->fetchAllAssociative();
+}
 }
