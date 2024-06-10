@@ -20,7 +20,8 @@ class User extends Model
             ->setParameter(0, $email)
             ->fetchAssociative();
     }
-    public function paginateUser($page = 1, $perPage = 5)
+
+    public function paginateUser($page = 1, $perPage = 5, $desc = 'desc')
     {
         $queryBuilder = clone ($this->queryBuilder);
         $totalPage = ceil($this->count() / $perPage);
@@ -30,7 +31,7 @@ class User extends Model
             ->from($this->tableName)
             ->setFirstResult($offset)
             ->setMaxResults($perPage)
-            ->orderBy('id', 'desc')
+            ->orderBy('id', $desc)
             ->fetchAllAssociative();
 
         return [$data, $totalPage];

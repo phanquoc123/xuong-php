@@ -1,4 +1,5 @@
 <?php
+
 namespace Quocpa44\ComposerKhoiTao\Controller\Admin;
 
 use Quocpa44\ComposerKhoiTao\Common\Controller;
@@ -9,23 +10,22 @@ use Rakit\Validation\Validator;
 
 class CategoryController extends Controller
 {
-   private Category $category;
+    private Category $category;
 
-   public function __construct()
-   {
-    $this->category = new Category();
-   }
-
-   public function index()
+    public function __construct()
     {
-       [$categories , $totalPage] = $this->category->paginateCategories($_GET['page'] ?? 1 );
+        $this->category = new Category();
+    }
+
+    public function index()
+    {
+        [$categories, $totalPage] = $this->category->paginateCategories($_GET['page'] ?? 1);
 
         $this->renderAdmin('categories.index', [
             'categories' => $categories,
             'totalPage' => $totalPage,
             'page' => $_GET['page'] ?? 1,
         ]);
-        
     }
 
     public function create()
@@ -37,9 +37,9 @@ class CategoryController extends Controller
         // VALIDATE
         $validator = new Validator;
         $validation = $validator->make($_POST + $_FILES, [
-          
-            'name'                  => 'required|max:100',
-           
+
+            'name' => 'required|max:100',
+
         ]);
         $validation->validate();
 
@@ -50,9 +50,9 @@ class CategoryController extends Controller
             exit;
         } else {
             $data = [
-                
-                'name'          => $_POST['name'],
-                
+
+                'name' => $_POST['name'],
+
             ];
 
             $this->category->insert($data);
@@ -65,11 +65,43 @@ class CategoryController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $category = $this->category->findByID($id);
+        $this->renderAdmin('categories.edit', [
+            'category' => $category,
+        ]);
+    }
 
+    public function update($id)
+    {
+        $category = $this->category->findByID($id);
+        // VALIDATE
+        $validator = new Validator;
+        $validation = $validator->make($_POST + $_FILES, [
 
+            'name' => 'required|max:100',
+
+        ]);
+        $validation->validate();
+
+        if ($validation->fails()) {
+            $_SESSION['errors'] = $validation->errors()->firstOfAll();
+
+            header('Location: ' . url("admin/categories/{$category['id']}/edit"));
+            exit;
+        } else {
+            $data = [
+                'name' => $_POST['name'],
+            ];
+
+            $this->category->insert($data);
+
+            $_SESSION['status'] = true;
+            $_SESSION['msg'] = 'Thao tác thành công!';
+
+            header('Location: ' . url("admin/categories/{$category['id']}/edit"));
+            exit;
+        }
+    }
 }
-
-
-
-
-?>

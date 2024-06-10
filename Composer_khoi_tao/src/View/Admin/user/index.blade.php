@@ -23,8 +23,14 @@ Danh sách User
     <table class="w-full text-sm text-left rtl:text-right text-gray-800 dark:text-gray-700">
         <thead class="text-xs text-gray-700 uppercase bg-gray-400 dark:bg-gray-800 dark:text-gray-700">
             <tr>
-                <th scope="col" class="p-4">
-                    STT
+                <th scope="col" class="p-4 flex items-center gap-1">
+                    <a href="{{url('admin/users?asc')}}" class="text-black group hover:text-blue-500">
+                        <span class="relative">&nbsp;&lt;&nbsp;</span>
+                    </a>
+                    <span class="group-hover:opacity-0">STT</span>
+                    <a href="{{url('admin/users?desc')}}" class="text-black group hover:text-blue-500">
+                        <span class="relative">&nbsp;&gt;&nbsp;</span>
+                    </a>
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Name

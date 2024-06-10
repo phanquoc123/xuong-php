@@ -11,25 +11,24 @@ class DashboardController extends Controller
 {
     private Product $product;
     private User $user;
-   
+
 
     public function __construct()
     {
         $this->product = new Product();
         $this->user = new User();
-        
     }
 
     public function dashboard()
     {
         $totalProduct = $this->product->count();
         $totalUser = $this->user->count();
-       
+
 
         $this->renderAdmin('dashboard', [
-           'totalProduct' => $totalProduct,
-           'totalUser' => $totalUser,
-          
+            'totalProduct' => $totalProduct,
+            'totalUser' => $totalUser,
+
         ]);
     }
 }

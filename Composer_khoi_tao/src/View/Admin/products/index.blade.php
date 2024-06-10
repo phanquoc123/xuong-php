@@ -23,6 +23,7 @@ Danh sách sản phẩm
     <div class="p-4 text-gray-600 dark:text-gray-300 outline-none focus:outline-none">
         <form action="" method="get">
             <div class="relative flex">
+                <!-- Category -->
                 <select name="category"
                     class="ml-2 bg-white dark:bg-gray-800 h-10 px-5 rounded-l-full text-sm focus:outline-none outline-none border-2 border-gray-500 dark:border-gray-600 border-r-1 cursor-pointer max-h-10 overflow-y-hidden">
                     <option class="font-medium cursor-pointer" value="">Category</option>

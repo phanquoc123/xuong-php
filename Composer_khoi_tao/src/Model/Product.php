@@ -48,7 +48,7 @@ class Product extends Model
             )
             ->from($this->tableName, 'p')
             ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
-            ->where('p.name LIKE :keyword And p.category_id = :category')
+            ->where('p.name LIKE :keyword Or p.category_id = :category')
             ->setParameter('keyword', '%' . $keyword . '%')
             ->setParameter('category', $category)
             ->fetchAllAssociative();
@@ -170,23 +170,12 @@ class Product extends Model
 
     public function productByCategory($id){
         return $this->queryBuilder
-            ->select(
-                'p.id',
-                'p.category_id',
-                'p.name',
-                'p.price_regular',
-                'p.price_sale',
-                'p.img_thumbnail',
-                'p.created_at',
-                'p.updated_at',
-                'p.overview',
-                'p.content',
-                'c.name as c_name'
-            )
-            ->from($this->tableName, 'p')
-            ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
-            ->where('c.id = ?')
-            ->setParameter(0, $id)
+            ->select('*')
+            ->from($this->tableName)
+            
+            ->where('category_id = ?')
+            ->setParameter('category_id', $id)
+           
             ->fetchAssociative();
     }
 }
