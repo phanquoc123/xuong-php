@@ -48,7 +48,7 @@ class Product extends Model
             )
             ->from($this->tableName, 'p')
             ->innerJoin('p', 'categories', 'c', 'c.id = p.category_id')
-            ->where('p.name LIKE :keyword AND p.category_id = :category')
+            ->where('p.name LIKE :keyword Or p.category_id = :category')
             ->setParameter('keyword', '%' . $keyword . '%')
             ->setParameter('category', $category)
             ->fetchAllAssociative();
@@ -167,5 +167,4 @@ class Product extends Model
             ->setParameter(0, $id)
             ->fetchAssociative();
     }
-
 }
