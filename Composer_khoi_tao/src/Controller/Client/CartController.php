@@ -71,7 +71,6 @@ class CartController extends Controller
 
                 $this->cartDetail->deleteByCartID($cartID);
 
-                $totalPrice = 0; // Initialize a variable to store the total price
 
                 foreach ($_SESSION[$key] as $productID => $item) {
 
