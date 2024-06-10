@@ -7,4 +7,7 @@ use Quocpa44\ComposerKhoiTao\Common\Model;
 class Cart extends Model
 {
    protected string $tableName = 'carts';
+
+
+   
 }
