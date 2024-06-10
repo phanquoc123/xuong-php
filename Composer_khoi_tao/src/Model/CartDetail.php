@@ -8,6 +8,16 @@ class CartDetail extends Model
 {
    protected string $tableName = 'cart_details';
 
+   public function countCartDetail($cartID)
+    {
+        return $this->queryBuilder
+            ->select("COUNT(*) as $this->tableName")
+            ->from($this->tableName)
+            ->where('cart_id = ?')
+            ->setParameter(0, $cartID)
+            ->fetchOne();
+    }
+
    public function findByCartIDAndProductID($cartID, $productID)
    {
       return $this->queryBuilder

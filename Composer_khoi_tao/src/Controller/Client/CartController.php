@@ -21,6 +21,15 @@ class CartController extends Controller
         $this->cart = new Cart();
         $this->cartDetail = new CartDetail();
     }
+    // public function countQuantityProduct($cartID){
+
+    //     $soluongCart = $this->cartDetail->countCartDetail($cartID);
+
+    //     $this->renderAdmin('home',[
+    //         'soluongCart' => $soluongCart
+    //     ]);
+
+    // }
 
     public function add()
     { // thêm vào giỏ hàng

@@ -23,16 +23,27 @@ class ProductController extends Controller
     }
     public function index()
     {
-        // $productByCate          = $this->product->productByCategory();
+       
         $categories             = $this->category->getAll();
         [$products, $totalPage] = $this->product->paginateShop($_GET['page'] ?? 1);
 
         $this->renderClient('product', [
-            // 'productByCate' => $productByCate,
+           
             'categories' => $categories,
             'products' => $products,
             'totalPage' => $totalPage,
             'page' => $_GET['page'] ?? 1,
+        ]);
+    }
+
+     public function productByCate($category)
+    {
+        
+        $proByCate = $this->product->productByCategory($category);
+
+        $this->renderClient('productByCate', [
+            'proByCate' => $proByCate,
+
         ]);
     }
 
@@ -47,12 +58,5 @@ class ProductController extends Controller
     }
 
 
-    public function productByCate($category)
-    {
-        $proByCate = $this->product->productByCategory($category);
-        $this->renderClient('product', [
-            'proByCate' => $proByCate,
-
-        ]);
-    }
+   
 }
