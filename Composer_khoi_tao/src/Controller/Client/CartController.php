@@ -58,7 +58,10 @@ class CartController extends Controller
                     ]);
                 }
 
+
                 $cartID = $cart['id'] ?? $conn->lastInsertId();
+                echo 1;
+                Helper::debug($cartID);
 
                 $_SESSION['cart_id'] = $cartID;
 
@@ -76,6 +79,8 @@ class CartController extends Controller
                 //throw $th;
             }
         }
+        Helper::debug($_SESSION[$key]);
+
 
         header('Location: ' . url('product/' . $_GET['productID']));
         exit;

@@ -15,7 +15,7 @@
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
-                        <li >
+                        <li>
                             <a href="{{ url() }}">Home</a>
                             {{-- <ul class="sub-menu">
                                 <li><a href="index.html">Homepage 1</a></li>
@@ -28,7 +28,7 @@
                             <a href="{{ url('product') }}">Shop</a>
                         </li>
 
-                    
+
 
                         <li>
                             <a href="blog.html">Blog</a>
@@ -50,31 +50,27 @@
                         <i class="zmdi zmdi-search"></i>
                     </div>
 
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-                        data-notify="2">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 
-                    <a href="#"
-                        class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-                        data-notify="0">
+                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
                         <i class="zmdi zmdi-favorite-outline"></i>
                     </a>
-                    @if (!isset($_SESSION['user']))
-                        <a href="{{ url('login') }}"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " data-notify="0">
-                            <span class="material-symbols-outlined">
-                                login
-                            </span>
-                        </a>
+                    @if (!is_logged())
+                    <a href="{{ url('login') }}" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " data-notify="0">
+                        <span class="material-symbols-outlined">
+                            login
+                        </span>
+                    </a>
                     @endif
 
-                    @if (isset($_SESSION['user']))
-                        <form action="{{ url('logout') }}" method="post">
-                            <button type="submit" class="material-symbols-outlined dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-                                logout
-                            </button>
-                        </form>
+                    @if (is_logged())
+                    <form action="{{ url('logout') }}" method="post">
+                        <button type="submit" class="material-symbols-outlined dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                            logout
+                        </button>
+                    </form>
                     @endif
 
 
@@ -99,13 +95,11 @@
                 <i class="zmdi zmdi-search"></i>
             </div>
 
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-                data-notify="2">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
                 <i class="zmdi zmdi-shopping-cart"></i>
             </div>
 
-            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
-                data-notify="0">
+            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
                 <i class="zmdi zmdi-favorite-outline"></i>
             </a>
         </div>
