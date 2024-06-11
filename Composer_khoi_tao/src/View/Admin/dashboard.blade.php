@@ -35,9 +35,9 @@
         <li><i class='bx bx-line-chart'></i>
             <span class="info">
                 <h3>
-                    14,721
+                    {{ $totalOrder }}
                 </h3>
-                <p>Searches</p>
+                <p>Tổng số đơn hàng</p>
             </span>
         </li>
         <li><i class='bx bx-dollar-circle'></i>
